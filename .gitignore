@@ -1,0 +1,32 @@
+# Copyright 2021 Adam Chalkley
+#
+# https:#github.com/atc0005/check-whois
+#
+# Licensed under the MIT License. See LICENSE file in the project root for
+# full license information.
+
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Ignore Visual Studio Code workspace-level settings
+/.vscode
+
+# Ignore local "scratch" directory of temporary files
+/scratch
+
+# Ignore plugin name in its multiple (potential) variations
+/check_cert
+/check-cert
+
+# Ignore assets intended for upload to new release entry
+/release_assets
