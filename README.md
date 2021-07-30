@@ -28,6 +28,9 @@ Go-based tooling to monitor WHOIS records.
   - [Command-line arguments](#command-line-arguments)
     - [`check_whois`](#check_whois-1)
 - [Examples](#examples)
+  - [`OK` result](#ok-result)
+  - [`WARNING` result](#warning-result)
+  - [`CRITICAL` result](#critical-result)
 - [License](#license)
 - [Related projects](#related-projects)
 - [References](#references)
@@ -168,7 +171,109 @@ been tested.
 
 ## Examples
 
-TODO: GH-4
+### `OK` result
+
+This example uses default age thresholds to check the expiration date for the
+specified domain. Since the expiration occurs after those default thresholds,
+the result is considered `OK`.
+
+```ShellSession
+$ ./check_whois --domain "google.com"
+OK: "google.com" domain registration has 2602d 18h remaining
+
+
+**ERRORS**
+
+* None
+
+**THRESHOLDS**
+
+* CRITICAL: Expires before 2021-08-14 09:31:39 +0000 UTC (15 days)
+* WARNING: Expires before 2021-08-29 09:31:39 +0000 UTC (30 days)
+
+**DETAILED INFO**
+
+WHOIS metadata for "google.com" domain:
+
+* Status: [clientdeleteprohibited, clienttransferprohibited, clientupdateprohibited, serverdeleteprohibited, servertransferprohibited, serverupdateprohibited]
+* Creation Date: 2028-09-14 04:00:00 +0000 UTC
+* Updated Date: 2019-09-09 15:39:04 +0000 UTC
+* Expiration Date: 2028-09-14 04:00:00 +0000 UTC
+* Registrar Name: MarkMonitor Inc.
+* Registrant Name:
+* Registrant Email: select request email form at https://domains.markmonitor.com/whois/google.com
+```
+
+### `WARNING` result
+
+This example uses explicit age thresholds to simulate a domain that is
+expiring soon, but hasn't yet crossed the final `CRITICAL` age threshold. The
+result is considered to be a `WARNING` state.
+
+```ShellSession
+$ ./check_whois --domain "microsoft.com" --age-warning 365 --age-critical 120
+{"level":"warn","version":"check-whois x.y.z (https://github.com/atc0005/check-whois)","logging_level":"info","domain":"microsoft.com","time":"2021-07-30T04:40:08-05:00","caller":"/mnt/t/github/check-whois/cmd/check_whois/main.go:142","message":"Domain is expiring"}
+WARNING: "microsoft.com" domain registration has 276d 18h remaining
+
+
+**ERRORS**
+
+* domain is expiring
+
+**THRESHOLDS**
+
+* CRITICAL: Expires before 2021-11-27 09:40:08 +0000 UTC (120 days)
+* WARNING: Expires before 2022-07-30 09:40:08 +0000 UTC (365 days)
+
+**DETAILED INFO**
+
+WHOIS metadata for "microsoft.com" domain:
+
+* Status: [clientdeleteprohibited, clienttransferprohibited, clientupdateprohibited, serverdeleteprohibited, servertransferprohibited, serverupdateprohibited]
+* Creation Date: 2022-05-03 04:00:00 +0000 UTC
+* Updated Date: 2021-03-12 23:25:32 +0000 UTC
+* Expiration Date: 2022-05-03 04:00:00 +0000 UTC
+* Registrar Name: MarkMonitor Inc.
+* Registrant Name: Domain Administrator
+* Registrant Email: admin@domains.microsoft
+```
+
+### `CRITICAL` result
+
+This example uses explicit age thresholds to simulate a domain that is
+expiring soon and has crossed the final `CRITICAL` age threshold. The
+result is considered to be a `CRITICAL` state.
+
+The domain is expected to expire soon without direct intervention from the
+current domain owner.
+
+```ShellSession
+$ ./check_whois --domain "godaddy.com" --age-warning 365 --age-critical 120
+{"level":"warn","version":"check-whois x.y.z (https://github.com/atc0005/check-whois)","logging_level":"info","domain":"godaddy.com","time":"2021-07-30T04:41:06-05:00","caller":"/mnt/t/github/check-whois/cmd/check_whois/main.go:142","message":"Domain is expiring"}
+CRITICAL: "godaddy.com" domain registration has 94d 2h remaining
+
+
+**ERRORS**
+
+* domain is expiring
+
+**THRESHOLDS**
+
+* CRITICAL: Expires before 2021-11-27 09:41:06 +0000 UTC (120 days)
+* WARNING: Expires before 2022-07-30 09:41:06 +0000 UTC (365 days)
+
+**DETAILED INFO**
+
+WHOIS metadata for "godaddy.com" domain:
+
+* Status: [clientdeleteprohibited, clientrenewprohibited, clienttransferprohibited, clientupdateprohibited, serverdeleteprohibited, servertransferprohibited, serverupdateprohibited]
+* Creation Date: 2021-11-01 11:59:59 +0000 UTC
+* Updated Date: 2020-04-07 14:26:27 +0000 UTC
+* Expiration Date: 2021-11-01 11:59:59 +0000 UTC
+* Registrar Name: GoDaddy.com, LLC
+* Registrant Name:
+* Registrant Email: select contact domain holder link at https://www.godaddy.com/whois/results.aspx?domain=godaddy.com
+```
 
 ## License
 
