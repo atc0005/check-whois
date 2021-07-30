@@ -25,8 +25,8 @@
 /scratch
 
 # Ignore plugin name in its multiple (potential) variations
-/check_cert
-/check-cert
+/check_whois
+/check-whois
 
 # Ignore assets intended for upload to new release entry
 /release_assets
