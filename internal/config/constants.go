@@ -12,6 +12,7 @@ const myAppURL string = "https://github.com/atc0005/" + myAppName
 
 const (
 	domainFlagHelp                  string = "The name of the domain whose WHOIS records will be evaluated."
+	registrarServerFlagHelp         string = "The name of the optional domain registrar WHOIS server to use for queries."
 	versionFlagHelp                 string = "Whether to display application version and then immediately exit application."
 	logLevelFlagHelp                string = "Sets log level to one of disabled, panic, fatal, error, warn, info, debug or trace."
 	brandingFlagHelp                string = "Toggles emission of branding details with plugin status details. This output is disabled by default."
@@ -22,6 +23,7 @@ const (
 // Default flag settings if not overridden by user input
 const (
 	defaultDomain                string = ""
+	defaultRegistrarServer       string = ""
 	defaultLogLevel              string = "info"
 	defaultBranding              bool   = false
 	defaultDisplayVersionAndExit bool   = false
