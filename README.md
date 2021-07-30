@@ -3,18 +3,12 @@
 
 Go-based tooling to monitor WHOIS records.
 
-<!--
-
-TODO: GH-3
-
 [![Latest Release](https://img.shields.io/github/release/atc0005/check-whois.svg?style=flat-square)][repo-url]
 [![Go Reference](https://pkg.go.dev/badge/github.com/atc0005/check-whois.svg)](https://pkg.go.dev/github.com/atc0005/check-whois)
 [![Validate Codebase](https://github.com/atc0005/check-whois/workflows/Validate%20Codebase/badge.svg)](https://github.com/atc0005/check-whois/actions?query=workflow%3A%22Validate+Codebase%22)
 [![Validate Docs](https://github.com/atc0005/check-whois/workflows/Validate%20Docs/badge.svg)](https://github.com/atc0005/check-whois/actions?query=workflow%3A%22Validate+Docs%22)
 [![Lint and Build using Makefile](https://github.com/atc0005/check-whois/workflows/Lint%20and%20Build%20using%20Makefile/badge.svg)](https://github.com/atc0005/check-whois/actions?query=workflow%3A%22Lint+and+Build+using+Makefile%22)
 [![Quick Validation](https://github.com/atc0005/check-whois/workflows/Quick%20Validation/badge.svg)](https://github.com/atc0005/check-whois/actions?query=workflow%3A%22Quick+Validation%22)
-
--->
 
 <!-- omit in toc -->
 ## Table of Contents
@@ -205,7 +199,7 @@ SOFTWARE.
 ## Related projects
 
 - <https://github.com/atc0005/send2teams>
-- <https://github.com/atc0005/check-cert>
+- <https://github.com/atc0005/check-whois>
 - <https://github.com/atc0005/check-illiad>
 - <https://github.com/atc0005/check-mail>
 - <https://github.com/atc0005/check-path>
