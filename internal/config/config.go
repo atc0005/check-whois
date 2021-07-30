@@ -59,6 +59,10 @@ type Config struct {
 	// Domain is the name of the domain whose WHOIS records will be evaluated.
 	Domain string
 
+	// RegistrarServer is the optional user-specified server to use for WHOIS
+	// lookups.
+	RegistrarServer string
+
 	// LoggingLevel is the supported logging level for this application.
 	LoggingLevel string
 

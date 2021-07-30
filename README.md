@@ -168,6 +168,7 @@ been tested.
 | `w`, `age-warning`  | No       | 30      | No     | *positive whole number of days*                                         | The number of days remaining before domain expiration when a `WARNING` state is triggered.           |
 | `ll`, `log-level`   | No       | `info`  | No     | `disabled`, `panic`, `fatal`, `error`, `warn`, `info`, `debug`, `trace` | Log message priority filter. Log messages with a lower level are ignored.                            |
 | `d`, `domain`       | **Yes**  |         | No     | *domain name*                                                           | The name of the domain whose WHOIS records will be evaluated.                                        |
+| `s`, `server`       | No       |         | No     | *valid WHOIS server fqdn*                                               | The name of the optional domain registrar WHOIS server to use for queries.                           |
 
 ## Examples
 

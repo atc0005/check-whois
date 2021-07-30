@@ -76,7 +76,14 @@ func main() {
 		Str("domain", cfg.Domain).
 		Logger()
 
-	whoisRaw, err := whois.Whois(cfg.Domain)
+	var whoisRaw string
+	var err error
+	switch {
+	case cfg.RegistrarServer != "":
+		whoisRaw, err = whois.Whois(cfg.Domain, cfg.RegistrarServer)
+	default:
+		whoisRaw, err = whois.Whois(cfg.Domain)
+	}
 	if err != nil {
 		log.Error().Err(err).Msg("failed to query WHOIS data")
 

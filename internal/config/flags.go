@@ -27,6 +27,9 @@ func (c *Config) handleFlagsConfig() {
 	flag.StringVar(&c.Domain, "d", defaultDomain, domainFlagHelp)
 	flag.StringVar(&c.Domain, "domain", defaultDomain, domainFlagHelp)
 
+	flag.StringVar(&c.RegistrarServer, "s", defaultRegistrarServer, registrarServerFlagHelp)
+	flag.StringVar(&c.RegistrarServer, "server", defaultRegistrarServer, registrarServerFlagHelp)
+
 	flag.BoolVar(&c.ShowVersion, "v", defaultDisplayVersionAndExit, versionFlagHelp)
 	flag.BoolVar(&c.ShowVersion, "version", defaultDisplayVersionAndExit, versionFlagHelp)
 
