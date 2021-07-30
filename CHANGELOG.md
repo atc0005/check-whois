@@ -26,6 +26,19 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.2.0] - 2021-07-30
+
+### Overview
+
+- Add new optional flag
+- built using Go 1.16.6
+  - Statically linked
+  - Linux (x86, x64)
+
+### Added
+
+- Add optional flag for registrar WHOIS server
+
 ## [v0.1.0] - 2021-07-30
 
 ### Overview
@@ -54,5 +67,6 @@ Features of this release:
   - choice of `disabled`, `panic`, `fatal`, `error`, `warn`, `info` (the
     default), `debug` or `trace`.
 
-[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.2.0...HEAD
+[v0.2.0]: https://github.com/atc0005/check-whois/releases/tag/v0.2.0
 [v0.1.0]: https://github.com/atc0005/check-whois/releases/tag/v0.1.0
