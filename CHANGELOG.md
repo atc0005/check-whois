@@ -33,6 +33,7 @@ The following types of changes will be recorded in this file:
 - Dependency updates
 - built using Go 1.16.7
   - Statically linked
+  - Windows (x86, x64)
   - Linux (x86, x64)
 
 ### Changed
@@ -50,6 +51,7 @@ The following types of changes will be recorded in this file:
 - Add new optional flag
 - built using Go 1.16.6
   - Statically linked
+  - Windows (x86, x64)
   - Linux (x86, x64)
 
 ### Added
@@ -63,6 +65,7 @@ The following types of changes will be recorded in this file:
 - Initial project release
 - built using Go 1.16.6
   - Statically linked
+  - Windows (x86, x64)
   - Linux (x86, x64)
 
 ### Added
