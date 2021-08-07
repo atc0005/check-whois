@@ -26,6 +26,23 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.2.1] - 2021-08-06
+
+### Overview
+
+- Dependency updates
+- built using Go 1.16.7
+  - Statically linked
+  - Linux (x86, x64)
+
+### Changed
+
+- Dependencies
+  - `Go`
+    - `1.16.6` to `1.16.7`
+  - `actions/setup-node`
+    - updated from `v2.3.0` to `v2.4.0`
+
 ## [v0.2.0] - 2021-07-30
 
 ### Overview
@@ -67,6 +84,7 @@ Features of this release:
   - choice of `disabled`, `panic`, `fatal`, `error`, `warn`, `info` (the
     default), `debug` or `trace`.
 
-[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.2.1...HEAD
+[v0.2.1]: https://github.com/atc0005/check-whois/releases/tag/v0.2.1
 [v0.2.0]: https://github.com/atc0005/check-whois/releases/tag/v0.2.0
 [v0.1.0]: https://github.com/atc0005/check-whois/releases/tag/v0.1.0
