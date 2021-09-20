@@ -7,7 +7,7 @@ github.com/likexian/gokit/xslice
 # github.com/likexian/whois v1.12.1
 ## explicit
 github.com/likexian/whois
-# github.com/likexian/whois-parser v1.20.4
+# github.com/likexian/whois-parser v1.20.5
 ## explicit
 github.com/likexian/whois-parser
 # github.com/rs/zerolog v1.25.0

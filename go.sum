@@ -7,8 +7,8 @@ github.com/likexian/gokit v0.25.0/go.mod h1:NCv1RDZK5kR0T2SfAl/vjIO6rsjszt2C/25T
 github.com/likexian/whois v1.12.1 h1:NtMReNHi6IFhiTlipkgXGQq+OGAFwbJPVbQnzoLeAmA=
 github.com/likexian/whois v1.12.1/go.mod h1:x2D4hARtz/E39xOgwDlJ/1k02+kxp87NeCHFyijSOUg=
 github.com/likexian/whois-parser v1.20.3/go.mod h1:+WnlYZfcIqRs4eyf2kkk3QugBL25dKRx7N8/RrRe8jg=
-github.com/likexian/whois-parser v1.20.4 h1:QBi8gzYH6wWfjaxVq3AcfteSsmvTc6Dseq8joB6nvZ8=
-github.com/likexian/whois-parser v1.20.4/go.mod h1:+WnlYZfcIqRs4eyf2kkk3QugBL25dKRx7N8/RrRe8jg=
+github.com/likexian/whois-parser v1.20.5 h1:YsvyHlubZWmSnz4f8dj1+daVRzMcVwV35r3rHhC1XuY=
+github.com/likexian/whois-parser v1.20.5/go.mod h1:+WnlYZfcIqRs4eyf2kkk3QugBL25dKRx7N8/RrRe8jg=
 github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/rs/xid v1.3.0/go.mod h1:trrq9SKmegXys3aeAKXMUTdJsYXVwGY3RLcfgqegfbg=
 github.com/rs/zerolog v1.25.0 h1:Rj7XygbUHKUlDPcVdoLyR91fJBsduXj5fRxyqIQj/II=
