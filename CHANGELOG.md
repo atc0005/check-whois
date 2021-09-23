@@ -26,6 +26,28 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.2.2] - 2021-09-23
+
+### Overview
+
+- Dependency updates
+- built using Go 1.16.8
+  - Statically linked
+  - Windows (x86, x64)
+  - Linux (x86, x64)
+
+### Changed
+
+- Dependencies
+  - `Go`
+    - `1.16.7` to `1.16.8`
+  - `atc0005/go-nagios`
+    - `v0.6.1` to `v0.7.0`
+  - `rs/zerolog`
+    - `v1.23.0` to `v1.25.0`
+  - `likexian/whois-parser`
+    - `v1.20.4` to `v1.20.5`
+
 ## [v0.2.1] - 2021-08-06
 
 ### Overview
@@ -87,7 +109,8 @@ Features of this release:
   - choice of `disabled`, `panic`, `fatal`, `error`, `warn`, `info` (the
     default), `debug` or `trace`.
 
-[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.2.1...HEAD
+[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.2.2...HEAD
+[v0.2.2]: https://github.com/atc0005/check-whois/releases/tag/v0.2.2
 [v0.2.1]: https://github.com/atc0005/check-whois/releases/tag/v0.2.1
 [v0.2.0]: https://github.com/atc0005/check-whois/releases/tag/v0.2.0
 [v0.1.0]: https://github.com/atc0005/check-whois/releases/tag/v0.1.0
