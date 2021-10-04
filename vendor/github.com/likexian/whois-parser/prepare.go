@@ -469,7 +469,7 @@ func prepareTW(text string) string { //nolint:cyclop
 						continue
 					}
 				}
-				// See examples/tw_git.tw
+				// See testdata/noterror/tw_git.tw
 				if tokenName == "Registrant" && tokens[token][index] != "Address" {
 					if len(v) == 2 && strings.ToLower(v) != v {
 						index = xslice.Index(tokens[token], "Address")
@@ -825,6 +825,7 @@ func prepareTK(text string) string {
 			"Address",
 			"Address",
 			"Address",
+			"Country",
 		},
 	}
 
