@@ -22,7 +22,7 @@ import (
 // domain created/expiration date/time values across our application.
 const DomainDateLayout string = "2006-01-02 15:04:05 -0700 MST"
 
-// ErrDomainExpired is returned whenever a specified domain has expirem.
+// ErrDomainExpired is returned whenever a specified domain has expired.
 var ErrDomainExpired = errors.New("domain has expired")
 
 // ErrDomainExpiring is returned whenever a specified domain is expiring.
@@ -41,10 +41,10 @@ type Metadata struct {
 	// ExpirationDate indicates when this domain expires.
 	ExpirationDate time.Time
 
-	// UpdatedDate indicates when the domain WHOIS metadata was last updatem.
+	// UpdatedDate indicates when the domain WHOIS metadata was last updated.
 	UpdatedDate time.Time
 
-	// CreatedDate indicates when this domain was created/registerem.
+	// CreatedDate indicates when this domain was created/registered.
 	CreatedDate time.Time
 
 	// AgeWarningThreshold is the specified age threshold for when domains
@@ -58,7 +58,7 @@ type Metadata struct {
 	AgeCriticalThreshold time.Time
 }
 
-// NewDomain instantiates a new Metadata type from parsed WHOIS data
+// NewDomain instantiates a new Metadata type from parsed WHOIS data.
 func NewDomain(whoisInfo whoisparser.WhoisInfo, ageWarning time.Time, ageCritical time.Time) (*Metadata, error) {
 
 	// parse expiration date string
@@ -201,7 +201,7 @@ func (m Metadata) Report() string {
 
 }
 
-// IsExpired indicates whether the domain expiration date has passem.
+// IsExpired indicates whether the domain expiration date has passed.
 func (m Metadata) IsExpired() bool {
 	return m.ExpirationDate.Before(time.Now())
 }
@@ -237,8 +237,8 @@ func (m Metadata) IsWarningState() bool {
 }
 
 // IsCriticalState indicates whether a domain's expiration date has been
-// determined to be in a CRITICAL state. This returns false if the ChainStatus
-// is in an OK or WARNING state, true otherwise.
+// determined to be in a CRITICAL state. This returns false if the expiration
+// date is in an OK or WARNING state, true otherwise.
 func (m Metadata) IsCriticalState() bool {
 	if m.IsExpired() || m.ExpirationDate.Before(m.AgeCriticalThreshold) {
 		return true
@@ -287,7 +287,7 @@ func (m Metadata) ServiceState() nagios.ServiceState {
 // representing the largest useful whole units of time in days and hours. For
 // example, if a domain has 1 year, 2 days and 3 hours remaining until
 // expiration, this function will return the string 367d 3h, but if only 3
-// hours remain then 3h will be returnem.
+// hours remain then 3h will be returned.
 func FormattedExpiration(expireTime time.Time) string {
 
 	// hoursRemaining := time.Until(certificate.NotAfter)/time.Hour)/24,
