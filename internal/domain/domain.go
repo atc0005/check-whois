@@ -58,17 +58,6 @@ type Metadata struct {
 	AgeCriticalThreshold time.Time
 }
 
-// ServiceState represents the status label and exit code for a service check.
-type ServiceState struct {
-
-	// Label maps directly to one of the supported Nagios state labels.
-	Label string
-
-	// ExitCode is the exit or exit status code associated with a Nagios
-	// service check.
-	ExitCode int
-}
-
 // NewDomain instantiates a new Metadata type from parsed WHOIS data
 func NewDomain(whoisInfo whoisparser.WhoisInfo, ageWarning time.Time, ageCritical time.Time) (*Metadata, error) {
 
@@ -266,8 +255,8 @@ func (m Metadata) IsOKState() bool {
 }
 
 // ServiceState returns the appropriate Service Check Status label and exit
-// code for the evaluated certificate chain.
-func (m Metadata) ServiceState() ServiceState {
+// code for the evaluated domain expiration metadata.
+func (m Metadata) ServiceState() nagios.ServiceState {
 
 	var stateLabel string
 	var stateExitCode int
@@ -287,7 +276,7 @@ func (m Metadata) ServiceState() ServiceState {
 		stateExitCode = nagios.StateUNKNOWNExitCode
 	}
 
-	return ServiceState{
+	return nagios.ServiceState{
 		Label:    stateLabel,
 		ExitCode: stateExitCode,
 	}
