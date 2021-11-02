@@ -10,7 +10,7 @@ github.com/likexian/whois
 # github.com/likexian/whois-parser v1.22.0
 ## explicit
 github.com/likexian/whois-parser
-# github.com/rs/zerolog v1.25.0
+# github.com/rs/zerolog v1.26.0
 ## explicit
 github.com/rs/zerolog
 github.com/rs/zerolog/internal/cbor
