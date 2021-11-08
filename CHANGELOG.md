@@ -55,6 +55,9 @@ The following types of changes will be recorded in this file:
     - `v1.20.5` to `v1.22.0`
 
 - (GH-39) Replace bundled ServiceState type
+
+### Fixed
+
 - (GH-41) Fix various typos and copy/paste/modify issues
 
 ## [v0.2.2] - 2021-09-23
