@@ -26,6 +26,37 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.2.3] - 2021-11-08
+
+### Overview
+
+- Dependency updates
+- built using Go 1.16.10
+  - Statically linked
+  - Windows (x86, x64)
+  - Linux (x86, x64)
+
+### Changed
+
+- Dependencies
+  - `Go`
+    - `1.16.8` to `1.16.10`
+  - `atc0005/go-nagios`
+    - `v0.7.0` to `v0.8.1`
+  - `rs/zerolog`
+    - `v1.25.0` to `v1.26.0`
+  - `actions/checkout`
+    - `v2.3.4` to `v2.4.0`
+  - `actions/setup-node`
+    - `v2.4.0` to `v2.4.1`
+  - `likexian/whois`
+    - `v1.12.1` to `v1.12.4`
+  - `likexian/whois-parser`
+    - `v1.20.5` to `v1.22.0`
+
+- (GH-39) Replace bundled ServiceState type
+- (GH-41) Fix various typos and copy/paste/modify issues
+
 ## [v0.2.2] - 2021-09-23
 
 ### Overview
@@ -109,7 +140,8 @@ Features of this release:
   - choice of `disabled`, `panic`, `fatal`, `error`, `warn`, `info` (the
     default), `debug` or `trace`.
 
-[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.2.2...HEAD
+[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.2.3...HEAD
+[v0.2.3]: https://github.com/atc0005/check-whois/releases/tag/v0.2.3
 [v0.2.2]: https://github.com/atc0005/check-whois/releases/tag/v0.2.2
 [v0.2.1]: https://github.com/atc0005/check-whois/releases/tag/v0.2.1
 [v0.2.0]: https://github.com/atc0005/check-whois/releases/tag/v0.2.0
