@@ -290,7 +290,6 @@ func (m Metadata) ServiceState() nagios.ServiceState {
 // hours remain then 3h will be returned.
 func FormattedExpiration(expireTime time.Time) string {
 
-	// hoursRemaining := time.Until(certificate.NotAfter)/time.Hour)/24,
 	timeRemaining := time.Until(expireTime).Hours()
 
 	var timeExpired bool
@@ -298,7 +297,8 @@ func FormattedExpiration(expireTime time.Time) string {
 	var daysRemainingStr string
 	var hoursRemainingStr string
 
-	// Flip sign back to positive, note that cert is expired for later use
+	// Flip sign back to positive, note that expiraton has been reached for
+	// later use.
 	if timeRemaining < 0 {
 		timeExpired = true
 		timeRemaining *= -1
@@ -312,8 +312,8 @@ func FormattedExpiration(expireTime time.Time) string {
 	}
 
 	// Multiply the whole number of days by 24 to get the hours value, then
-	// subtract from the original number of hours until cert expiration to get
-	// the number of hours leftover from the days calculation.
+	// subtract from the original number of hours until expiration to get the
+	// number of hours leftover from the days calculation.
 	hoursRemaining := math.Trunc(timeRemaining - (daysRemaining * 24))
 
 	hoursRemainingStr = fmt.Sprintf("%dh", int64(hoursRemaining))
