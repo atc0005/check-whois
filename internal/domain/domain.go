@@ -286,8 +286,10 @@ func (m Metadata) ServiceState() nagios.ServiceState {
 // FormattedExpiration receives a Time value and converts it to a string
 // representing the largest useful whole units of time in days and hours. For
 // example, if a domain has 1 year, 2 days and 3 hours remaining until
-// expiration, this function will return the string 367d 3h, but if only 3
-// hours remain then 3h will be returned.
+// expiration, this function will return the string '367d 3h remaining', but
+// if only 3 hours remain then '3h remaining' will be returned. If a domain
+// registration has expired, the 'ago' suffix will be used instead. For
+// example, if a domain has expired 3 hours ago, '3h ago' will be returned.
 func FormattedExpiration(expireTime time.Time) string {
 
 	timeRemaining := time.Until(expireTime).Hours()
