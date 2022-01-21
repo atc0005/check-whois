@@ -87,6 +87,11 @@ been tested.
 ### Building source code
 
 - Go
+  - see this project's `go.mod` file for *preferred* version
+  - this project tests against [officially supported Go
+    releases][go-supported-releases]
+    - the most recent stable release (aka, "stable")
+    - the prior, but still supported release (aka, "oldstable")
 - GCC
   - if building with custom options (as the provided `Makefile` does)
 - `make`
@@ -327,6 +332,8 @@ SOFTWARE.
 [go-docs-download]: <https://golang.org/dl>  "Download Go"
 
 [go-docs-install]: <https://golang.org/doc/install>  "Install Go"
+
+[go-supported-releases]: <https://go.dev/doc/devel/release#policy> "Go Release Policy"
 
 [nagios-state-types]: <https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/3/en/statetypes.html>
 
