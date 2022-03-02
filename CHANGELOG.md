@@ -26,6 +26,34 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.2.6] - 2022-03-02
+
+### Overview
+
+- Dependency updates
+- CI / linting improvements
+- built using Go 1.17.7
+  - Statically linked
+  - Windows (x86, x64)
+  - Linux (x86, x64)
+
+### Changed
+
+- Dependencies
+  - `Go`
+    - `1.17.6` to `1.17.7`
+  - `actions/checkout`
+    - `v2.4.0` to `v3`
+  - `actions/setup-node`
+    - `v2.5.1` to `v3`
+
+### Fixed
+
+- (GH-66) Expand linting GitHub Actions Workflow to include `oldstable`,
+  `unstable` container images
+- (GH-67) Switch Docker image source from Docker Hub to GitHub Container
+  Registry (GHCR)
+
 ## [v0.2.5] - 2022-01-21
 
 ### Overview
@@ -195,7 +223,8 @@ Features of this release:
   - choice of `disabled`, `panic`, `fatal`, `error`, `warn`, `info` (the
     default), `debug` or `trace`.
 
-[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.2.5...HEAD
+[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.2.6...HEAD
+[v0.2.6]: https://github.com/atc0005/check-whois/releases/tag/v0.2.6
 [v0.2.5]: https://github.com/atc0005/check-whois/releases/tag/v0.2.5
 [v0.2.4]: https://github.com/atc0005/check-whois/releases/tag/v0.2.4
 [v0.2.3]: https://github.com/atc0005/check-whois/releases/tag/v0.2.3
