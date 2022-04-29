@@ -26,6 +26,24 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.2.7] - 2022-04-29
+
+### Overview
+
+- Dependency updates
+- built using Go 1.17.9
+  - Statically linked
+  - Windows (x86, x64)
+  - Linux (x86, x64)
+
+### Changed
+
+- Dependencies
+  - `Go`
+    - `1.17.7` to `1.17.9`
+  - `likexian/whois`
+    - `v1.12.4` to `v1.12.5`
+
 ## [v0.2.6] - 2022-03-02
 
 ### Overview
@@ -223,7 +241,8 @@ Features of this release:
   - choice of `disabled`, `panic`, `fatal`, `error`, `warn`, `info` (the
     default), `debug` or `trace`.
 
-[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.2.6...HEAD
+[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.2.7...HEAD
+[v0.2.7]: https://github.com/atc0005/check-whois/releases/tag/v0.2.7
 [v0.2.6]: https://github.com/atc0005/check-whois/releases/tag/v0.2.6
 [v0.2.5]: https://github.com/atc0005/check-whois/releases/tag/v0.2.5
 [v0.2.4]: https://github.com/atc0005/check-whois/releases/tag/v0.2.4
