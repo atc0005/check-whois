@@ -26,6 +26,22 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.2.8] - 2022-05-13
+
+### Overview
+
+- Dependency updates
+- built using Go 1.17.10
+  - Statically linked
+  - Windows (x86, x64)
+  - Linux (x86, x64)
+
+### Changed
+
+- Dependencies
+  - `Go`
+    - `1.17.9` to `1.17.10`
+
 ## [v0.2.7] - 2022-04-29
 
 ### Overview
@@ -241,7 +257,8 @@ Features of this release:
   - choice of `disabled`, `panic`, `fatal`, `error`, `warn`, `info` (the
     default), `debug` or `trace`.
 
-[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.2.7...HEAD
+[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.2.8...HEAD
+[v0.2.8]: https://github.com/atc0005/check-whois/releases/tag/v0.2.8
 [v0.2.7]: https://github.com/atc0005/check-whois/releases/tag/v0.2.7
 [v0.2.6]: https://github.com/atc0005/check-whois/releases/tag/v0.2.6
 [v0.2.5]: https://github.com/atc0005/check-whois/releases/tag/v0.2.5
