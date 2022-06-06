@@ -1,15 +1,15 @@
 # github.com/atc0005/go-nagios v0.8.2
 ## explicit; go 1.14
 github.com/atc0005/go-nagios
-# github.com/likexian/gokit v0.25.6
-## explicit; go 1.17
+# github.com/likexian/gokit v0.25.8
+## explicit; go 1.18
 github.com/likexian/gokit/assert
 github.com/likexian/gokit/xslice
 # github.com/likexian/whois v1.12.5
 ## explicit; go 1.17
 github.com/likexian/whois
-# github.com/likexian/whois-parser v1.22.0
-## explicit; go 1.17
+# github.com/likexian/whois-parser v1.23.1
+## explicit; go 1.18
 github.com/likexian/whois-parser
 # github.com/rs/zerolog v1.26.1
 ## explicit; go 1.15
@@ -17,13 +17,13 @@ github.com/rs/zerolog
 github.com/rs/zerolog/internal/cbor
 github.com/rs/zerolog/internal/json
 github.com/rs/zerolog/log
-# golang.org/x/net v0.0.0-20210929193557-e81a3d93ecf6
+# golang.org/x/net v0.0.0-20220531201128-c960675eff93
 ## explicit; go 1.17
 golang.org/x/net/idna
 golang.org/x/net/internal/socks
 golang.org/x/net/proxy
-# golang.org/x/text v0.3.6
-## explicit; go 1.11
+# golang.org/x/text v0.3.7
+## explicit; go 1.17
 golang.org/x/text/secure/bidirule
 golang.org/x/text/transform
 golang.org/x/text/unicode/bidi

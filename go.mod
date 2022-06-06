@@ -13,13 +13,13 @@ go 1.17
 require (
 	github.com/atc0005/go-nagios v0.8.2
 	github.com/likexian/whois v1.12.5
-	github.com/likexian/whois-parser v1.22.0
+	github.com/likexian/whois-parser v1.23.1
 	github.com/rs/zerolog v1.26.1
 
 )
 
 require (
-	github.com/likexian/gokit v0.25.6 // indirect
-	golang.org/x/net v0.0.0-20210929193557-e81a3d93ecf6 // indirect
-	golang.org/x/text v0.3.6 // indirect
+	github.com/likexian/gokit v0.25.8 // indirect
+	golang.org/x/net v0.0.0-20220531201128-c960675eff93 // indirect
+	golang.org/x/text v0.3.7 // indirect
 )
