@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2021 Li Kexian
+ * Copyright 2014-2022 Li Kexian
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -99,6 +99,10 @@ func isExtNotFoundDomain(data, extension string) bool {
 		}
 	case "nz":
 		if strings.Contains(data, "query_status: 220 Available") {
+			return true
+		}
+	case "pl":
+		if strings.Contains(data, "No information available about domain name") {
 			return true
 		}
 	case "sexy":

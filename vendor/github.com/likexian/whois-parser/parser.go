@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2021 Li Kexian
+ * Copyright 2014-2022 Li Kexian
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,7 @@ import (
 
 // Version returns package version
 func Version() string {
-	return "1.22.0"
+	return "1.23.1"
 }
 
 // Author returns package author
@@ -125,14 +125,23 @@ func Parse(text string) (whoisInfo WhoisInfo, err error) { //nolint:cyclop
 		case "created_date":
 			if domain.CreatedDate == "" {
 				domain.CreatedDate = value
+				if parsed, err := parseDateString(value); err == nil {
+					domain.CreatedDateInTime = &parsed
+				}
 			}
 		case "updated_date":
 			if domain.UpdatedDate == "" {
 				domain.UpdatedDate = value
+				if parsed, err := parseDateString(value); err == nil {
+					domain.UpdatedDateInTime = &parsed
+				}
 			}
 		case "expired_date":
 			if domain.ExpirationDate == "" {
 				domain.ExpirationDate = value
+				if parsed, err := parseDateString(value); err == nil {
+					domain.ExpirationDateInTime = &parsed
+				}
 			}
 		case "referral_url":
 			registrar.ReferralURL = value

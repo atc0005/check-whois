@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2021 Li Kexian
+ * Copyright 2014-2022 Li Kexian
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -99,6 +99,7 @@ var (
 		"domain expires":                         "expired_date",
 		"record expires on":                      "expired_date",
 		"record will expire on":                  "expired_date",
+		"renewal date":                           "expired_date",
 		"referral url":                           "referral_url",
 		"registrar url":                          "referral_url",
 		"registrar www":                          "referral_url",
