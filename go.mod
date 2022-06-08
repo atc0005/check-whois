@@ -14,12 +14,15 @@ require (
 	github.com/atc0005/go-nagios v0.8.2
 	github.com/likexian/whois v1.12.5
 	github.com/likexian/whois-parser v1.23.1
-	github.com/rs/zerolog v1.26.1
+	github.com/rs/zerolog v1.27.0
 
 )
 
 require (
 	github.com/likexian/gokit v0.25.8 // indirect
+	github.com/mattn/go-colorable v0.1.12 // indirect
+	github.com/mattn/go-isatty v0.0.14 // indirect
 	golang.org/x/net v0.0.0-20220531201128-c960675eff93 // indirect
+	golang.org/x/sys v0.0.0-20220520151302-bc2c85ada10a // indirect
 	golang.org/x/text v0.3.7 // indirect
 )
