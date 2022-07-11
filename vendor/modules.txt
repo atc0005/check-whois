@@ -5,8 +5,8 @@ github.com/atc0005/go-nagios
 ## explicit; go 1.18
 github.com/likexian/gokit/assert
 github.com/likexian/gokit/xslice
-# github.com/likexian/whois v1.12.5
-## explicit; go 1.17
+# github.com/likexian/whois v1.14.2
+## explicit; go 1.18
 github.com/likexian/whois
 # github.com/likexian/whois-parser v1.24.1
 ## explicit; go 1.18
