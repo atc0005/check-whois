@@ -49,7 +49,7 @@ func main() {
 			"%s: Error initializing application",
 			nagios.StateCRITICALLabel,
 		)
-		nagiosExitState.LastError = cfgErr
+		nagiosExitState.AddError(cfgErr)
 		nagiosExitState.ExitStatusCode = nagios.StateCRITICALExitCode
 
 		return
@@ -87,7 +87,7 @@ func main() {
 	if err != nil {
 		log.Error().Err(err).Msg("failed to query WHOIS data")
 
-		nagiosExitState.LastError = err
+		nagiosExitState.AddError(err)
 		nagiosExitState.ServiceOutput = fmt.Sprintf(
 			"%s: Error fetching WHOIS data for %s domain",
 			nagios.StateCRITICALLabel,
@@ -103,7 +103,7 @@ func main() {
 	if err != nil {
 		log.Error().Err(err).Msg("failed to parse WHOIS data")
 
-		nagiosExitState.LastError = err
+		nagiosExitState.AddError(err)
 		nagiosExitState.ServiceOutput = fmt.Sprintf(
 			"%s: Error parsing WHOIS data for %s domain",
 			nagios.StateCRITICALLabel,
@@ -119,7 +119,7 @@ func main() {
 	if err != nil {
 		log.Error().Err(err).Msg("failed to parse WhoisInfo data")
 
-		nagiosExitState.LastError = err
+		nagiosExitState.AddError(err)
 		nagiosExitState.ServiceOutput = fmt.Sprintf(
 			"%s: Error parsing WhoisInfo data for %s domain",
 			nagios.StateCRITICALLabel,
@@ -137,7 +137,7 @@ func main() {
 
 		log.Error().Msg("Domain has expired")
 
-		nagiosExitState.LastError = domain.ErrDomainExpired
+		nagiosExitState.AddError(domain.ErrDomainExpired)
 		nagiosExitState.ServiceOutput = d.OneLineCheckSummary()
 		nagiosExitState.LongServiceOutput = d.Report()
 		nagiosExitState.ExitStatusCode = d.ServiceState().ExitCode
@@ -148,7 +148,7 @@ func main() {
 
 		log.Warn().Msg("Domain is expiring")
 
-		nagiosExitState.LastError = domain.ErrDomainExpiring
+		nagiosExitState.AddError(domain.ErrDomainExpiring)
 		nagiosExitState.ServiceOutput = d.OneLineCheckSummary()
 		nagiosExitState.LongServiceOutput = d.Report()
 		nagiosExitState.ExitStatusCode = d.ServiceState().ExitCode
@@ -159,7 +159,6 @@ func main() {
 
 		log.Debug().Msg("No problems with expiration date for domain detected")
 
-		nagiosExitState.LastError = nil
 		nagiosExitState.ServiceOutput = d.OneLineCheckSummary()
 		nagiosExitState.LongServiceOutput = d.Report()
 		nagiosExitState.ExitStatusCode = nagios.StateOKExitCode
