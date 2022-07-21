@@ -26,6 +26,37 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.2.9] - 2022-07-21
+
+### Overview
+
+- Bug fixes
+- Dependency updates
+- built using Go 1.17.12
+  - Statically linked
+  - Windows (x86, x64)
+  - Linux (x86, x64)
+
+### Changed
+
+- Dependencies
+  - `Go`
+    - `1.17.10` to `1.17.12`
+  - `likexian/whois`
+    - `v1.12.5` to `v1.14.2`
+  - `likexian/whois-parser`
+    - `v1.22.0` to `v1.24.1`
+  - `atc0005/go-nagios`
+    - `v0.8.2` to `v0.9.1`
+  - `rs/zerolog`
+    - `v1.26.1` to `v1.27.0`
+
+### Fixed
+
+- (GH-88) Update lintinstall Makefile recipe
+- (GH-90) Fix atc0005/go-nagios library usage linting errors
+- (GH-93) Fix unused Markdownlint reference
+
 ## [v0.2.8] - 2022-05-13
 
 ### Overview
@@ -257,7 +288,8 @@ Features of this release:
   - choice of `disabled`, `panic`, `fatal`, `error`, `warn`, `info` (the
     default), `debug` or `trace`.
 
-[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.2.8...HEAD
+[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.2.9...HEAD
+[v0.2.9]: https://github.com/atc0005/check-whois/releases/tag/v0.2.9
 [v0.2.8]: https://github.com/atc0005/check-whois/releases/tag/v0.2.8
 [v0.2.7]: https://github.com/atc0005/check-whois/releases/tag/v0.2.7
 [v0.2.6]: https://github.com/atc0005/check-whois/releases/tag/v0.2.6
