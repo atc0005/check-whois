@@ -335,6 +335,4 @@ SOFTWARE.
 
 [go-supported-releases]: <https://go.dev/doc/devel/release#policy> "Go Release Policy"
 
-[nagios-state-types]: <https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/3/en/statetypes.html>
-
 <!-- []: PLACEHOLDER "DESCRIPTION_HERE" -->
