@@ -6,26 +6,24 @@
 // full license information.
 
 /*
-
 Go-based tooling to monitor WHOIS records.
 
-PROJECT HOME
+# PROJECT HOME
 
 See our GitHub repo (https://github.com/atc0005/check-whois) for the latest
 code, to file an issue or submit improvements for review and potential
 inclusion into the project.
 
-PURPOSE
+# PURPOSE
 
 Monitor WHOIS records.
 
-FEATURES
+# FEATURES
 
-• Nagios plugin for monitoring expiration of WHOIS records
+  - Nagios plugin for monitoring expiration of WHOIS records
 
-USAGE
+# USAGE
 
 See our main README for supported settings and examples.
-
 */
 package main
