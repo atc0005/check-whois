@@ -26,6 +26,32 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.2.11] - 2022-09-22
+
+### Overview
+
+- Bug fixes
+- Dependency updates
+- GitHub Actions Workflows updates
+- built using Go 1.19.1
+  - Statically linked
+  - Windows (x86, x64)
+  - Linux (x86, x64)
+
+### Changed
+
+- Dependencies
+  - `Go`
+    - `1.17.13` to `1.19.1`
+  - `atc0005/go-nagios`
+    - `v0.9.1` to `v0.10.0`
+  - `rs/zerolog`
+    - `v1.27.0` to `v1.28.0`
+  - `github/codeql-action`
+    - `v2.1.21` to `v2.1.25`
+- (GH-98) Update project to Go 1.19
+- (GH-99) Update Makefile and GitHub Actions Workflows
+
 ## [v0.2.10] - 2022-08-25
 
 ### Overview
@@ -309,7 +335,8 @@ Features of this release:
   - choice of `disabled`, `panic`, `fatal`, `error`, `warn`, `info` (the
     default), `debug` or `trace`.
 
-[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.2.10...HEAD
+[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.2.11...HEAD
+[v0.2.11]: https://github.com/atc0005/check-whois/releases/tag/v0.2.11
 [v0.2.10]: https://github.com/atc0005/check-whois/releases/tag/v0.2.10
 [v0.2.9]: https://github.com/atc0005/check-whois/releases/tag/v0.2.9
 [v0.2.8]: https://github.com/atc0005/check-whois/releases/tag/v0.2.8
