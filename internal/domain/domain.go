@@ -79,7 +79,7 @@ func NewDomain(whoisInfo whoisparser.WhoisInfo, ageWarning time.Time, ageCritica
 		)
 	}
 
-	createdDate, err := time.Parse(time.RFC3339, whoisInfo.Domain.ExpirationDate)
+	createdDate, err := time.Parse(time.RFC3339, whoisInfo.Domain.CreatedDate)
 	if err != nil {
 		return nil, fmt.Errorf(
 			"failed to parse domain creation date: %w",
