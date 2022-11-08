@@ -58,33 +58,81 @@ type Metadata struct {
 	AgeCriticalThreshold time.Time
 }
 
+// parseDateString attempts to parse a given date string using detailed
+// formats first, then falls back to a basic format before finally giving up
+// and returning an error if no formats match.
+func parseDateString(dateString string) (time.Time, error) {
+	var date time.Time
+	var err error
+
+	date, err = time.Parse(time.RFC3339, dateString)
+	if err == nil {
+		return date, nil
+	}
+
+	date, err = time.Parse("2006-01-02", dateString)
+	if err == nil {
+		return date, nil
+	}
+
+	// Use last encountered error as return value.
+	return time.Time{}, fmt.Errorf(
+		"failed to parse date string %s: %w",
+		dateString,
+		err,
+	)
+}
+
 // NewDomain instantiates a new Metadata type from parsed WHOIS data.
 func NewDomain(whoisInfo whoisparser.WhoisInfo, ageWarning time.Time, ageCritical time.Time) (*Metadata, error) {
 
-	// parse expiration date string
-	// 2028-09-14T04:00:00Z
-	expirationDate, err := time.Parse(time.RFC3339, whoisInfo.Domain.ExpirationDate)
-	if err != nil {
-		return nil, fmt.Errorf(
-			"failed to parse domain expiration date: %w",
-			err,
-		)
+	var expirationDate time.Time
+	var updatedDate time.Time
+	var createdDate time.Time
+
+	var err error
+
+	// We attempt to use an already parsed time value as-is first, but if not
+	// set we perform a cursory parsing attempt against the plaintext version
+	// of the date values recorded in the parsed WHOIS record.
+
+	switch {
+	case whoisInfo.Domain.ExpirationDateInTime != nil:
+		expirationDate = *whoisInfo.Domain.ExpirationDateInTime
+	default:
+		expirationDate, err = parseDateString(whoisInfo.Domain.ExpirationDate)
+		if err != nil {
+			return nil, fmt.Errorf(
+				"failed to parse domain expiration date: %w",
+				err,
+			)
+		}
 	}
 
-	updatedDate, err := time.Parse(time.RFC3339, whoisInfo.Domain.UpdatedDate)
-	if err != nil {
-		return nil, fmt.Errorf(
-			"failed to parse domain updated date: %w",
-			err,
-		)
+	switch {
+	case whoisInfo.Domain.UpdatedDateInTime != nil:
+		updatedDate = *whoisInfo.Domain.UpdatedDateInTime
+	default:
+		updatedDate, err = parseDateString(whoisInfo.Domain.UpdatedDate)
+		if err != nil {
+			return nil, fmt.Errorf(
+				"failed to parse domain updated date: %w",
+				err,
+			)
+		}
 	}
 
-	createdDate, err := time.Parse(time.RFC3339, whoisInfo.Domain.CreatedDate)
-	if err != nil {
-		return nil, fmt.Errorf(
-			"failed to parse domain creation date: %w",
-			err,
-		)
+	switch {
+	case whoisInfo.Domain.CreatedDateInTime != nil:
+		createdDate = *whoisInfo.Domain.CreatedDateInTime
+	default:
+		createdDate, err = parseDateString(whoisInfo.Domain.CreatedDate)
+		if err != nil {
+			return nil, fmt.Errorf(
+				"failed to parse domain creation date: %w",
+				err,
+			)
+		}
 	}
 
 	d := Metadata{
