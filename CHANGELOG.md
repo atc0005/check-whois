@@ -26,6 +26,38 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.2.12] - 2022-11-09
+
+### Overview
+
+- Bug fixes
+- Dependency updates
+- GitHub Actions Workflows updates
+- built using Go 1.19.3
+  - Statically linked
+  - Windows (x86, x64)
+  - Linux (x86, x64)
+
+### Changed
+
+- Dependencies
+  - `Go`
+    - `1.19.1` to `1.19.3`
+  - `github.com/likexian/whois`
+    - `v1.14.2` to `v1.14.3-0.20221012013111-a48608e6097a`
+  - `atc0005/go-nagios`
+    - `v0.10.0` to `v0.10.2`
+- (GH-108) Refactor GitHub Actions workflows to import logic
+
+### Fixed
+
+- (GH-115) Receiving `dial tcp: address tcp///whois.pairdomains.com: unknown
+  port` error for a specific domain
+- (GH-117) WHOIS CreatedDate value incorrectly duplicates ExpirationDate value
+- (GH-119) Failure to parse date fields in WHOIS record: `parsing time
+  "2022-06-03" as "2006-01-02T15:04:05Z07:00": cannot parse "" as "T"`
+- (GH-121) Fix Makefile Go module base path detection
+
 ## [v0.2.11] - 2022-09-22
 
 ### Overview
@@ -335,7 +367,8 @@ Features of this release:
   - choice of `disabled`, `panic`, `fatal`, `error`, `warn`, `info` (the
     default), `debug` or `trace`.
 
-[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.2.11...HEAD
+[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.2.12...HEAD
+[v0.2.12]: https://github.com/atc0005/check-whois/releases/tag/v0.2.12
 [v0.2.11]: https://github.com/atc0005/check-whois/releases/tag/v0.2.11
 [v0.2.10]: https://github.com/atc0005/check-whois/releases/tag/v0.2.10
 [v0.2.9]: https://github.com/atc0005/check-whois/releases/tag/v0.2.9
