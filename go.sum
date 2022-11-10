@@ -7,8 +7,8 @@ github.com/likexian/gokit v0.25.9 h1:rzSQ/dP7Qw+QUzSuWlrLF0AtZS3Di6uO5yWOKhx2Gk4
 github.com/likexian/gokit v0.25.9/go.mod h1:oDDqJUcnnF9uAKuw54F7s6oEG+OJ7eallfDW2dq0A/o=
 github.com/likexian/whois v1.14.3-0.20221012013111-a48608e6097a h1:K/QfmpWmyJQjNVKsPwoHc81Na9beJBQhhZAMMdrLJ7M=
 github.com/likexian/whois v1.14.3-0.20221012013111-a48608e6097a/go.mod h1:uBqrDy1FgZuHUAKWeoOuyq3zd1/BtslqnazV7tCT0sY=
-github.com/likexian/whois-parser v1.24.1 h1:UVV/A0hr2X4lM3rXUwjMX6x9MGfPJdJ4hCz8EjzSGNE=
-github.com/likexian/whois-parser v1.24.1/go.mod h1:fT0m/HCa4PXuR4ddA5PIE9V7gTWldeiMG/AHpeAhLtg=
+github.com/likexian/whois-parser v1.24.2 h1:EaNwcXqWBfQPfLD5F6MxAA0o7FnzmGcN3mg7v7h0zfY=
+github.com/likexian/whois-parser v1.24.2/go.mod h1:fT0m/HCa4PXuR4ddA5PIE9V7gTWldeiMG/AHpeAhLtg=
 github.com/mattn/go-colorable v0.1.12 h1:jF+Du6AlPIjs2BiUiQlKOX0rt3SujHxPnksPKZbaA40=
 github.com/mattn/go-colorable v0.1.12/go.mod h1:u5H1YNBxpqRaxsYJYSkiCWKzEfiAb1Gb520KVy5xxl4=
 github.com/mattn/go-isatty v0.0.14 h1:yVuAays6BHfxijgZPzw+3Zlu5yQgKGP2/hcQbHb7S9Y=
