@@ -12,7 +12,7 @@ go 1.19
 
 require (
 	github.com/atc0005/go-nagios v0.10.2
-	github.com/likexian/whois v1.14.3-0.20221012013111-a48608e6097a
+	github.com/likexian/whois v1.14.4
 	github.com/likexian/whois-parser v1.24.2
 	github.com/rs/zerolog v1.28.0
 
@@ -20,9 +20,9 @@ require (
 
 require (
 	github.com/likexian/gokit v0.25.9 // indirect
-	github.com/mattn/go-colorable v0.1.12 // indirect
-	github.com/mattn/go-isatty v0.0.14 // indirect
-	golang.org/x/net v0.0.0-20220708220712-1185a9018129 // indirect
-	golang.org/x/sys v0.0.0-20220520151302-bc2c85ada10a // indirect
-	golang.org/x/text v0.3.7 // indirect
+	github.com/mattn/go-colorable v0.1.13 // indirect
+	github.com/mattn/go-isatty v0.0.16 // indirect
+	golang.org/x/net v0.4.0 // indirect
+	golang.org/x/sys v0.3.0 // indirect
+	golang.org/x/text v0.5.0 // indirect
 )
