@@ -26,6 +26,36 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.2.13] - 2022-12-09
+
+### Overview
+
+- Dependency updates
+- built using Go 1.19.4
+  - Statically linked
+  - Windows (x86, x64)
+  - Linux (x86, x64)
+
+### Changed
+
+- Dependencies
+  - `Go`
+    - `1.19.3` to `1.19.4`
+  - `github.com/likexian/whois`
+    - `v1.14.3-0.20221012013111-a48608e6097a` to `v1.14.4`
+  - `github.com/likexian/whois-parser`
+    - `v1.24.1` to `v1.24.2`
+  - `github.com/mattn/go-colorable`
+    - `v0.1.12` to `v0.1.13`
+  - `github.com/mattn/go-isatty`
+    - `v0.0.14` to `v0.0.16`
+  - `golang.org/x/net`
+    - `v0.0.0-20220708220712-1185a9018129` to `v0.4.0`
+  - `golang.org/x/sys`
+    - `v0.0.0-20220520151302-bc2c85ada10a` to `v0.3.0`
+  - `golang.org/x/text`
+    - `v0.3.7` to `v0.5.0`
+
 ## [v0.2.12] - 2022-11-09
 
 ### Overview
@@ -367,7 +397,8 @@ Features of this release:
   - choice of `disabled`, `panic`, `fatal`, `error`, `warn`, `info` (the
     default), `debug` or `trace`.
 
-[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.2.12...HEAD
+[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.2.13...HEAD
+[v0.2.13]: https://github.com/atc0005/check-whois/releases/tag/v0.2.13
 [v0.2.12]: https://github.com/atc0005/check-whois/releases/tag/v0.2.12
 [v0.2.11]: https://github.com/atc0005/check-whois/releases/tag/v0.2.11
 [v0.2.10]: https://github.com/atc0005/check-whois/releases/tag/v0.2.10
