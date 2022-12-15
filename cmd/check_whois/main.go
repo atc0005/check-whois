@@ -24,14 +24,10 @@ import (
 
 func main() {
 
-	// Set initial "state" as valid, adjust as we go.
-	var nagiosExitState = nagios.ExitState{
-		LastError:      nil,
-		ExitStatusCode: nagios.StateOKExitCode,
-	}
+	plugin := nagios.NewPlugin()
 
 	// defer this from the start so it is the last deferred function to run
-	defer nagiosExitState.ReturnCheckResults()
+	defer plugin.ReturnCheckResults()
 
 	// Setup configuration by parsing user-provided flags.
 	cfg, cfgErr := config.New()
@@ -45,12 +41,12 @@ func main() {
 		// We're using the standalone Err function from rs/zerolog/log as we
 		// do not have a working configuration.
 		zlog.Err(cfgErr).Msg("Error initializing application")
-		nagiosExitState.ServiceOutput = fmt.Sprintf(
+		plugin.ServiceOutput = fmt.Sprintf(
 			"%s: Error initializing application",
 			nagios.StateCRITICALLabel,
 		)
-		nagiosExitState.AddError(cfgErr)
-		nagiosExitState.ExitStatusCode = nagios.StateCRITICALExitCode
+		plugin.AddError(cfgErr)
+		plugin.ExitStatusCode = nagios.StateCRITICALExitCode
 
 		return
 	}
@@ -61,12 +57,12 @@ func main() {
 	domainExpireAgeWarning := now.AddDate(0, 0, cfg.AgeWarning)
 	domainExpireAgeCritical := now.AddDate(0, 0, cfg.AgeCritical)
 
-	nagiosExitState.WarningThreshold = fmt.Sprintf(
+	plugin.WarningThreshold = fmt.Sprintf(
 		"Expires before %v (%d days)",
 		domainExpireAgeWarning.Format(domain.DomainDateLayout),
 		cfg.AgeWarning,
 	)
-	nagiosExitState.CriticalThreshold = fmt.Sprintf(
+	plugin.CriticalThreshold = fmt.Sprintf(
 		"Expires before %v (%d days)",
 		domainExpireAgeCritical.Format(domain.DomainDateLayout),
 		cfg.AgeCritical,
@@ -87,13 +83,13 @@ func main() {
 	if err != nil {
 		log.Error().Err(err).Msg("failed to query WHOIS data")
 
-		nagiosExitState.AddError(err)
-		nagiosExitState.ServiceOutput = fmt.Sprintf(
+		plugin.AddError(err)
+		plugin.ServiceOutput = fmt.Sprintf(
 			"%s: Error fetching WHOIS data for %s domain",
 			nagios.StateCRITICALLabel,
 			cfg.Domain,
 		)
-		nagiosExitState.ExitStatusCode = nagios.StateCRITICALExitCode
+		plugin.ExitStatusCode = nagios.StateCRITICALExitCode
 
 		return
 
@@ -103,13 +99,13 @@ func main() {
 	if err != nil {
 		log.Error().Err(err).Msg("failed to parse WHOIS data")
 
-		nagiosExitState.AddError(err)
-		nagiosExitState.ServiceOutput = fmt.Sprintf(
+		plugin.AddError(err)
+		plugin.ServiceOutput = fmt.Sprintf(
 			"%s: Error parsing WHOIS data for %s domain",
 			nagios.StateCRITICALLabel,
 			cfg.Domain,
 		)
-		nagiosExitState.ExitStatusCode = nagios.StateCRITICALExitCode
+		plugin.ExitStatusCode = nagios.StateCRITICALExitCode
 
 		return
 
@@ -119,13 +115,13 @@ func main() {
 	if err != nil {
 		log.Error().Err(err).Msg("failed to parse WhoisInfo data")
 
-		nagiosExitState.AddError(err)
-		nagiosExitState.ServiceOutput = fmt.Sprintf(
+		plugin.AddError(err)
+		plugin.ServiceOutput = fmt.Sprintf(
 			"%s: Error parsing WhoisInfo data for %s domain",
 			nagios.StateCRITICALLabel,
 			cfg.Domain,
 		)
-		nagiosExitState.ExitStatusCode = nagios.StateCRITICALExitCode
+		plugin.ExitStatusCode = nagios.StateCRITICALExitCode
 
 		return
 
@@ -137,10 +133,10 @@ func main() {
 
 		log.Error().Msg("Domain has expired")
 
-		nagiosExitState.AddError(domain.ErrDomainExpired)
-		nagiosExitState.ServiceOutput = d.OneLineCheckSummary()
-		nagiosExitState.LongServiceOutput = d.Report()
-		nagiosExitState.ExitStatusCode = d.ServiceState().ExitCode
+		plugin.AddError(domain.ErrDomainExpired)
+		plugin.ServiceOutput = d.OneLineCheckSummary()
+		plugin.LongServiceOutput = d.Report()
+		plugin.ExitStatusCode = d.ServiceState().ExitCode
 
 		return
 
@@ -148,10 +144,10 @@ func main() {
 
 		log.Warn().Msg("Domain is expiring")
 
-		nagiosExitState.AddError(domain.ErrDomainExpiring)
-		nagiosExitState.ServiceOutput = d.OneLineCheckSummary()
-		nagiosExitState.LongServiceOutput = d.Report()
-		nagiosExitState.ExitStatusCode = d.ServiceState().ExitCode
+		plugin.AddError(domain.ErrDomainExpiring)
+		plugin.ServiceOutput = d.OneLineCheckSummary()
+		plugin.LongServiceOutput = d.Report()
+		plugin.ExitStatusCode = d.ServiceState().ExitCode
 
 		return
 
@@ -159,9 +155,9 @@ func main() {
 
 		log.Debug().Msg("No problems with expiration date for domain detected")
 
-		nagiosExitState.ServiceOutput = d.OneLineCheckSummary()
-		nagiosExitState.LongServiceOutput = d.Report()
-		nagiosExitState.ExitStatusCode = nagios.StateOKExitCode
+		plugin.ServiceOutput = d.OneLineCheckSummary()
+		plugin.LongServiceOutput = d.Report()
+		plugin.ExitStatusCode = nagios.StateOKExitCode
 
 		return
 
