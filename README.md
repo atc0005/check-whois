@@ -8,7 +8,6 @@ Go-based tooling to monitor WHOIS records.
 [![go.mod Go version](https://img.shields.io/github/go-mod/go-version/atc0005/check-whois)](https://github.com/atc0005/check-whois)
 [![Lint and Build](https://github.com/atc0005/check-whois/actions/workflows/lint-and-build.yml/badge.svg)](https://github.com/atc0005/check-whois/actions/workflows/lint-and-build.yml)
 [![Project Analysis](https://github.com/atc0005/check-whois/actions/workflows/project-analysis.yml/badge.svg)](https://github.com/atc0005/check-whois/actions/workflows/project-analysis.yml)
-[![Push Validation](https://github.com/atc0005/check-whois/actions/workflows/push-validation.yml/badge.svg)](https://github.com/atc0005/check-whois/actions/workflows/push-validation.yml)
 
 <!-- omit in toc -->
 ## Table of Contents
