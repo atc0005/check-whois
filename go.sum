@@ -8,8 +8,8 @@ github.com/likexian/gokit v0.25.10 h1:hNTOPFpgiMfCWQJkxKqaVQoR0qTu1iLc80zm5s3Qsk
 github.com/likexian/gokit v0.25.10/go.mod h1:YB8W4bVK51ge7aONXa+IUtsyOAo7YhG075ZsWmQIwAo=
 github.com/likexian/whois v1.14.4 h1:yNQVugAHfeoylzyhitcs0vaPksDduvzW46HLjqXhpCg=
 github.com/likexian/whois v1.14.4/go.mod h1:ijMqjPbtafr5TB49U3Hs3BsJx/93ixhRi/8YnCSK0iY=
-github.com/likexian/whois-parser v1.24.2 h1:EaNwcXqWBfQPfLD5F6MxAA0o7FnzmGcN3mg7v7h0zfY=
-github.com/likexian/whois-parser v1.24.2/go.mod h1:fT0m/HCa4PXuR4ddA5PIE9V7gTWldeiMG/AHpeAhLtg=
+github.com/likexian/whois-parser v1.24.4 h1:Bs51C5wUeLTsNGDHPcY0KMHGWUmffSW0KRURyP27ZlI=
+github.com/likexian/whois-parser v1.24.4/go.mod h1:Big+6yEUFc94zBwnLYdU3PzMDASAbYc3X5+kUg24N8M=
 github.com/mattn/go-colorable v0.1.12/go.mod h1:u5H1YNBxpqRaxsYJYSkiCWKzEfiAb1Gb520KVy5xxl4=
 github.com/mattn/go-colorable v0.1.13 h1:fFA4WZxdEF4tXPZVKMLwD8oUnCTTo08duU7wxecdEvA=
 github.com/mattn/go-colorable v0.1.13/go.mod h1:7S9/ev0klgBDR4GtXTXX8a3vIGJpMovkB8vQcUbaXHg=

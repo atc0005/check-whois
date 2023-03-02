@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2022 Li Kexian
+ * Copyright 2014-2023 Li Kexian
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -80,9 +80,10 @@ func isNotFoundDomain(data string) bool {
 	return containsIn(strings.ToLower(data), notFoundKeys)
 }
 
+var reBlank = regexp.MustCompile(`\s+`)
+
 // isExtNotFoundDomain returns if domain is not found by extension
 func isExtNotFoundDomain(data, extension string) bool {
-	reBlank := regexp.MustCompile(`\s+`)
 	data = reBlank.ReplaceAllString(data, " ")
 
 	switch extension {
@@ -112,6 +113,10 @@ func isExtNotFoundDomain(data, extension string) bool {
 		}
 	case "love":
 		if strings.Contains(data, "is available") {
+			return true
+		}
+	case "se":
+		if strings.Contains(data, "not found") {
 			return true
 		}
 	}
