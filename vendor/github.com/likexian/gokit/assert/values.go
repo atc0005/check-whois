@@ -1,5 +1,5 @@
 /*
- * Copyright 2012-2022 Li Kexian
+ * Copyright 2012-2023 Li Kexian
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -114,9 +114,10 @@ func IsContains(array interface{}, value interface{}) bool {
 }
 
 // IsMatch returns if value v contains any match of pattern r
-//   IsMatch(regexp.MustCompile("v\d+"), "v100")
-//   IsMatch("v\d+", "v100")
-//   IsMatch("\d+\.\d+", 100.1)
+//
+//	IsMatch(regexp.MustCompile("v\d+"), "v100")
+//	IsMatch("v\d+", "v100")
+//	IsMatch("\d+\.\d+", 100.1)
 func IsMatch(r interface{}, v interface{}) bool {
 	var re *regexp.Regexp
 
@@ -173,9 +174,10 @@ func IsGe(x, y interface{}) bool {
 
 // Compare compare x and y, by operation
 // It returns nil for true, ErrInvalid for invalid operation, err for false
-//   Compare(1, 2, ">") // number compare -> true
-//   Compare("a", "a", ">=") // string compare -> true
-//   Compare([]string{"a", "b"}, []string{"a"}, "<") // slice len compare -> false
+//
+//	Compare(1, 2, ">") // number compare -> true
+//	Compare("a", "a", ">=") // string compare -> true
+//	Compare([]string{"a", "b"}, []string{"a"}, "<") // slice len compare -> false
 func Compare(x, y interface{}, op string) error { //nolint:cyclop
 	if !IsContains([]string{Comparer.LT, Comparer.LE, Comparer.GT, Comparer.GE}, op) {
 		return ErrInvalid
@@ -322,9 +324,12 @@ func ToFloat64(v interface{}) (float64, error) {
 }
 
 // If returns x if c is true, else y
-//   z = If(c, x, y)
+//
+//	z = If(c, x, y)
+//
 // equal to:
-//   z = c ? x : y
+//
+//	z = c ? x : y
 func If(c bool, x, y interface{}) interface{} {
 	if c {
 		return x
