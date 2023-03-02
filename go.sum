@@ -6,8 +6,8 @@ github.com/godbus/dbus/v5 v5.0.4/go.mod h1:xhWf0FNVPg57R7Z0UbKHbJfkEywrmjJnf7w5x
 github.com/google/go-cmp v0.5.9 h1:O2Tfq5qg4qc4AmwVlvv0oLiVAGB7enBSJ2x2DqQFi38=
 github.com/likexian/gokit v0.25.10 h1:hNTOPFpgiMfCWQJkxKqaVQoR0qTu1iLc80zm5s3QskU=
 github.com/likexian/gokit v0.25.10/go.mod h1:YB8W4bVK51ge7aONXa+IUtsyOAo7YhG075ZsWmQIwAo=
-github.com/likexian/whois v1.14.4 h1:yNQVugAHfeoylzyhitcs0vaPksDduvzW46HLjqXhpCg=
-github.com/likexian/whois v1.14.4/go.mod h1:ijMqjPbtafr5TB49U3Hs3BsJx/93ixhRi/8YnCSK0iY=
+github.com/likexian/whois v1.14.5 h1:9cw8ljMHfc8KwGDxxeSOzD8RTzZ7CsNC8ngjUz/rM7c=
+github.com/likexian/whois v1.14.5/go.mod h1:J7pC+b5CrldSfZyNDf9q3D3M44/CNXNouyZJG5j/h+Q=
 github.com/likexian/whois-parser v1.24.4 h1:Bs51C5wUeLTsNGDHPcY0KMHGWUmffSW0KRURyP27ZlI=
 github.com/likexian/whois-parser v1.24.4/go.mod h1:Big+6yEUFc94zBwnLYdU3PzMDASAbYc3X5+kUg24N8M=
 github.com/mattn/go-colorable v0.1.12/go.mod h1:u5H1YNBxpqRaxsYJYSkiCWKzEfiAb1Gb520KVy5xxl4=
