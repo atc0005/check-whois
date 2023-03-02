@@ -8,8 +8,8 @@ github.com/likexian/gokit/xslice
 # github.com/likexian/whois v1.14.4
 ## explicit; go 1.18
 github.com/likexian/whois
-# github.com/likexian/whois-parser v1.24.2
-## explicit; go 1.18
+# github.com/likexian/whois-parser v1.24.4
+## explicit; go 1.20
 github.com/likexian/whois-parser
 # github.com/mattn/go-colorable v0.1.13
 ## explicit; go 1.15
