@@ -1,7 +1,7 @@
 # github.com/atc0005/go-nagios v0.14.0
 ## explicit; go 1.19
 github.com/atc0005/go-nagios
-# github.com/likexian/gokit v0.25.10
+# github.com/likexian/gokit v0.25.11
 ## explicit; go 1.20
 github.com/likexian/gokit/assert
 github.com/likexian/gokit/xslice

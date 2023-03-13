@@ -4,8 +4,8 @@ github.com/coreos/go-systemd/v22 v22.3.3-0.20220203105225-a9a7ef127534/go.mod h1
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/godbus/dbus/v5 v5.0.4/go.mod h1:xhWf0FNVPg57R7Z0UbKHbJfkEywrmjJnf7w5xrFpKfA=
 github.com/google/go-cmp v0.5.9 h1:O2Tfq5qg4qc4AmwVlvv0oLiVAGB7enBSJ2x2DqQFi38=
-github.com/likexian/gokit v0.25.10 h1:hNTOPFpgiMfCWQJkxKqaVQoR0qTu1iLc80zm5s3QskU=
-github.com/likexian/gokit v0.25.10/go.mod h1:YB8W4bVK51ge7aONXa+IUtsyOAo7YhG075ZsWmQIwAo=
+github.com/likexian/gokit v0.25.11 h1:o5H5JgVtBYBQn0QX30zE5+V8j2rgLTDoZWAO8xLFFfY=
+github.com/likexian/gokit v0.25.11/go.mod h1:IKRQFPah2KQ0HL3iVjaOvFbx2apkSdFicGmsA0A4a1c=
 github.com/likexian/whois v1.14.5 h1:9cw8ljMHfc8KwGDxxeSOzD8RTzZ7CsNC8ngjUz/rM7c=
 github.com/likexian/whois v1.14.5/go.mod h1:J7pC+b5CrldSfZyNDf9q3D3M44/CNXNouyZJG5j/h+Q=
 github.com/likexian/whois-parser v1.24.4 h1:Bs51C5wUeLTsNGDHPcY0KMHGWUmffSW0KRURyP27ZlI=
