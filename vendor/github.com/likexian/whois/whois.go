@@ -223,6 +223,7 @@ func getServer(data string) (string, string) {
 		"Registrar WHOIS Server: ",
 		"whois: ",
 		"ReferralServer: ",
+		"refer: ",
 	}
 
 	for _, token := range tokens {
