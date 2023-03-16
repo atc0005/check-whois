@@ -115,6 +115,8 @@ func isExtNotFoundDomain(data, extension string) bool {
 		if strings.Contains(data, "is available") {
 			return true
 		}
+	case "nu":
+		fallthrough
 	case "se":
 		if strings.Contains(data, "not found") {
 			return true
@@ -164,6 +166,13 @@ func isLimitExceeded(data string) bool {
 	limitExceedKeys := []string{
 		"limit exceeded",
 		"server too busy",
+		"quota exceeded",
+		"exceeded the maximum allowable",
+		"exceeded your query limit",
+		"restricted due to excessive queries",
+		"due to query limit controls",
+		"you have exceeded your allotted number of",
+		"maximum daily connection limit reached",
 	}
 
 	return containsIn(strings.ToLower(data), limitExceedKeys)
