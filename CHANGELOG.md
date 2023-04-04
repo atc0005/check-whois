@@ -26,6 +26,35 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.3.0] - 2023-04-04
+
+### Overview
+
+- Add support for generating DEB, RPM packages
+- Build improvements
+- Generated binary changes
+  - filename patterns
+  - compression (~ 66% smaller)
+  - executable metadata
+- built using Go 1.19.7
+  - Statically linked
+  - Windows (x86, x64)
+  - Linux (x86, x64)
+
+### Added
+
+- (GH-154) Generate RPM/DEB packages using nFPM
+- (GH-155) Add version details to Windows executables
+
+### Changed
+
+- (GH-153) Switch to semantic versioning (semver) compatible versioning
+  pattern
+- (GH-156) Makefile: Compress binaries & use fixed filenames
+- (GH-157) Makefile: Refresh recipes to add "standard" set, new
+  package-related options
+- (GH-158) Build dev/stable releases using go-ci Docker image
+
 ## [v0.2.14] - 2023-04-04
 
 ### Overview
@@ -449,7 +478,8 @@ Features of this release:
   - choice of `disabled`, `panic`, `fatal`, `error`, `warn`, `info` (the
     default), `debug` or `trace`.
 
-[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.2.14...HEAD
+[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.3.0...HEAD
+[v0.3.0]: https://github.com/atc0005/check-whois/releases/tag/v0.3.0
 [v0.2.14]: https://github.com/atc0005/check-whois/releases/tag/v0.2.14
 [v0.2.13]: https://github.com/atc0005/check-whois/releases/tag/v0.2.13
 [v0.2.12]: https://github.com/atc0005/check-whois/releases/tag/v0.2.12
