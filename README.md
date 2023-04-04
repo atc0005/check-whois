@@ -98,7 +98,7 @@ been tested.
 
 ### Running
 
-- Windows 10
+- Windows 10+
 - Ubuntu Linux 18.04+
 
 ## Installation
@@ -134,23 +134,33 @@ been tested.
      - look in `/tmp/check-whois/`
 1. Copy the applicable binaries to whatever systems needs to run them
 1. Deploy
-   - Place `list-emails` in a location of your choice
-   - Place `check_whois` in the same location where your distro's
-     package manage has place other Nagios plugins
+   - Place `check_whois` in the same location where your distro's package
+     manager has place other Nagios plugins
      - as `/usr/lib/nagios/plugins/check_whois` on Debian-based systems
      - as `/usr/lib64/nagios/plugins/check_whois` on RedHat-based
        systems
+
+**NOTE**: Depending on which `Makefile` recipe you use the generated binary
+may be compressed and have an `xz` extension. If so, you should decompress the
+binary first before deploying it (e.g., `xz -d check_whois-linux-amd64.xz`).
 
 ### Using release binaries
 
 1. Download the [latest
    release][repo-url] binaries
+1. Decompress binaries
+   - e.g., `xz -d check_whois-linux-amd64.xz`
 1. Deploy
    - Place `check_whois` in the same location where your distro's
      package manager places other Nagios plugins
      - as `/usr/lib/nagios/plugins/check_whois` on Debian-based systems
      - as `/usr/lib64/nagios/plugins/check_whois` on RedHat-based
        systems
+
+**NOTE**:
+
+DEB and RPM packages are provided as an alternative to manually deploying
+binaries.
 
 ## Configuration
 
