@@ -86,10 +86,10 @@ func main() {
 		plugin.AddError(err)
 		plugin.ServiceOutput = fmt.Sprintf(
 			"%s: Error fetching WHOIS data for %s domain",
-			nagios.StateCRITICALLabel,
+			nagios.StateUNKNOWNLabel,
 			cfg.Domain,
 		)
-		plugin.ExitStatusCode = nagios.StateCRITICALExitCode
+		plugin.ExitStatusCode = nagios.StateUNKNOWNExitCode
 
 		return
 
@@ -102,10 +102,10 @@ func main() {
 		plugin.AddError(err)
 		plugin.ServiceOutput = fmt.Sprintf(
 			"%s: Error parsing WHOIS data for %s domain",
-			nagios.StateCRITICALLabel,
+			nagios.StateUNKNOWNLabel,
 			cfg.Domain,
 		)
-		plugin.ExitStatusCode = nagios.StateCRITICALExitCode
+		plugin.ExitStatusCode = nagios.StateUNKNOWNExitCode
 
 		return
 
@@ -118,10 +118,10 @@ func main() {
 		plugin.AddError(err)
 		plugin.ServiceOutput = fmt.Sprintf(
 			"%s: Error parsing WhoisInfo data for %s domain",
-			nagios.StateCRITICALLabel,
+			nagios.StateUNKNOWNLabel,
 			cfg.Domain,
 		)
-		plugin.ExitStatusCode = nagios.StateCRITICALExitCode
+		plugin.ExitStatusCode = nagios.StateUNKNOWNExitCode
 
 		return
 
