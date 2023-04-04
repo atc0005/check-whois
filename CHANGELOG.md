@@ -26,6 +26,58 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.2.14] - 2023-04-04
+
+### Overview
+
+- Bug fixes
+- GitHub Actions workflows updates
+- Dependency updates
+- built using Go 1.19.7
+  - Statically linked
+  - Windows (x86, x64)
+  - Linux (x86, x64)
+
+### Added
+
+- (GH-136) Add Go Module Validation, Dependency Updates jobs
+
+### Changed
+
+- Dependencies
+  - `Go`
+    - `1.19.4` to `1.19.7`
+  - `github.com/likexian/whois`
+    - `v1.14.4` to `v1.14.6`
+  - `github.com/likexian/whois-parser`
+    - `v1.24.2` to `v1.24.7`
+  - `github.com/likexian/gokit`
+    - `v0.25.9` to `v0.25.11`
+  - `atc0005/go-nagios`
+    - `v0.10.2` to `v0.14.0`
+  - `rs/zerolog`
+    - `v1.28.0` to `v1.29.0`
+  - `github.com/mattn/go-isatty`
+    - `v0.0.16` to `v0.0.18`
+  - `golang.org/x/net`
+    - `v0.4.0` to `v0.8.0`
+  - `golang.org/x/sys`
+    - `v0.3.0` to `v0.6.0`
+  - `golang.org/x/text`
+    - `v0.5.0` to `v0.8.0`
+- Misc
+  - (GH-130) Update nagios library usage
+- CI
+  - (GH-145) Drop `Push Validation` workflow
+  - (GH-146) Rework workflow scheduling
+  - (GH-148) Remove `Push Validation` workflow status badge
+
+### Fixed
+
+- (GH-167) Update vuln analysis GHAW to use on.push
+- (GH-170) Use UNKNOWN state for invalid command-line options
+- (GH-171) Use UNKNOWN state for fetching & parsing failures
+
 ## [v0.2.13] - 2022-12-09
 
 ### Overview
@@ -397,7 +449,8 @@ Features of this release:
   - choice of `disabled`, `panic`, `fatal`, `error`, `warn`, `info` (the
     default), `debug` or `trace`.
 
-[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.2.13...HEAD
+[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.2.14...HEAD
+[v0.2.14]: https://github.com/atc0005/check-whois/releases/tag/v0.2.14
 [v0.2.13]: https://github.com/atc0005/check-whois/releases/tag/v0.2.13
 [v0.2.12]: https://github.com/atc0005/check-whois/releases/tag/v0.2.12
 [v0.2.11]: https://github.com/atc0005/check-whois/releases/tag/v0.2.11
