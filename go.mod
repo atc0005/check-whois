@@ -14,7 +14,7 @@ require (
 	github.com/atc0005/go-nagios v0.14.0
 	github.com/likexian/whois v1.14.6
 	github.com/likexian/whois-parser v1.24.7
-	github.com/rs/zerolog v1.29.0
+	github.com/rs/zerolog v1.29.1
 
 )
 
