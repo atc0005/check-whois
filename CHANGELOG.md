@@ -26,6 +26,38 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.3.1] - 2023-05-12
+
+### Overview
+
+- Dependency updates
+- built using Go 1.19.9
+  - Statically linked
+  - Windows (x86, x64)
+  - Linux (x86, x64)
+
+### Changed
+
+- Dependencies
+  - `Go`
+    - `1.19.7` to `1.19.9`
+  - `atc0005/go-ci`
+    - `go-ci-oldstable-build-v0.10.3` to `go-ci-oldstable-build-v0.10.5`
+  - `github.com/likexian/whois`
+    - `v1.14.6` to `v1.50.0`
+  - `github.com/likexian/whois-parser`
+    - `v1.24.7` to `v1.24.8`
+  - `github.com/likexian/gokit`
+    - `v0.25.11` to `v0.25.13`
+  - `rs/zerolog`
+    - `v1.29.0` to `v1.29.1`
+  - `golang.org/x/net`
+    - `v0.8.0` to `v0.10.0`
+  - `golang.org/x/sys`
+    - `v0.6.0` to `v0.8.0`
+  - `golang.org/x/text`
+    - `v0.8.0` to `v0.9.0`
+
 ## [v0.3.0] - 2023-04-04
 
 ### Overview
@@ -478,7 +510,8 @@ Features of this release:
   - choice of `disabled`, `panic`, `fatal`, `error`, `warn`, `info` (the
     default), `debug` or `trace`.
 
-[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.3.1...HEAD
+[v0.3.1]: https://github.com/atc0005/check-whois/releases/tag/v0.3.1
 [v0.3.0]: https://github.com/atc0005/check-whois/releases/tag/v0.3.0
 [v0.2.14]: https://github.com/atc0005/check-whois/releases/tag/v0.2.14
 [v0.2.13]: https://github.com/atc0005/check-whois/releases/tag/v0.2.13
