@@ -26,6 +26,42 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.3.2] - 2023-06-16
+
+### Overview
+
+- Bug fixes
+- GitHub Actions workflow updates
+- Dependency updates
+- built using Go 1.19.10
+  - Statically linked
+  - Windows (x86, x64)
+  - Linux (x86, x64)
+
+### Changed
+
+- Dependencies
+  - `Go`
+    - `1.19.9` to `1.19.10`
+  - `atc0005/go-ci`
+    - `go-ci-oldstable-build-v0.10.5` to `go-ci-oldstable-build-v0.11.0`
+  - `atc0005/go-nagios`
+    - `v0.14.0` to `v0.15.0`
+  - `golang.org/x/net`
+    - `v0.10.0` to `v0.11.0`
+  - `golang.org/x/sys`
+    - `v0.8.0` to `v0.9.0`
+  - `golang.org/x/text`
+    - `v0.9.0` to `v0.10.0`
+  - `mattn/go-isatty`
+    - `v0.0.18` to `v0.0.19`
+- (GH-194) Update vuln analysis GHAW to remove on.push hook
+
+### Fixed
+
+- (GH-191) Disable depguard linter
+- (GH-198) Restore local CodeQL workflow
+
 ## [v0.3.1] - 2023-05-12
 
 ### Overview
@@ -510,7 +546,8 @@ Features of this release:
   - choice of `disabled`, `panic`, `fatal`, `error`, `warn`, `info` (the
     default), `debug` or `trace`.
 
-[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.3.1...HEAD
+[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.3.2...HEAD
+[v0.3.2]: https://github.com/atc0005/check-whois/releases/tag/v0.3.2
 [v0.3.1]: https://github.com/atc0005/check-whois/releases/tag/v0.3.1
 [v0.3.0]: https://github.com/atc0005/check-whois/releases/tag/v0.3.0
 [v0.2.14]: https://github.com/atc0005/check-whois/releases/tag/v0.2.14
