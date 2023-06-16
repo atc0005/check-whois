@@ -26,6 +26,21 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.3.3] - 2023-06-16
+
+### Overview
+
+- Bug fix
+- built using Go 1.19.10
+  - Statically linked
+  - Windows (x86, x64)
+  - Linux (x86, x64)
+
+### Fixed
+
+- (GH-201) `runtime error: invalid memory address or nil pointer dereference`
+  error for domains missing WhoIS record fields
+
 ## [v0.3.2] - 2023-06-16
 
 ### Overview
@@ -546,7 +561,8 @@ Features of this release:
   - choice of `disabled`, `panic`, `fatal`, `error`, `warn`, `info` (the
     default), `debug` or `trace`.
 
-[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.3.2...HEAD
+[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.3.3...HEAD
+[v0.3.3]: https://github.com/atc0005/check-whois/releases/tag/v0.3.3
 [v0.3.2]: https://github.com/atc0005/check-whois/releases/tag/v0.3.2
 [v0.3.1]: https://github.com/atc0005/check-whois/releases/tag/v0.3.1
 [v0.3.0]: https://github.com/atc0005/check-whois/releases/tag/v0.3.0
