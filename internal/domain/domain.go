@@ -22,6 +22,10 @@ import (
 // domain created/expiration date/time values across our application.
 const DomainDateLayout string = "2006-01-02 15:04:05 -0700 MST"
 
+// defaultWhoISPlaceholderValue is used as a fallback value for any not found
+// in the WhoIS record data (e.g., registrant name or email).
+const defaultWhoISPlaceholderValue string = "unspecified"
+
 // ErrDomainExpired is returned whenever a specified domain has expired.
 var ErrDomainExpired = errors.New("domain has expired")
 
@@ -198,8 +202,8 @@ func (m Metadata) Report() string {
 
 	fmt.Fprintf(
 		&summary,
-		"* Status: [%s]%s",
-		strings.Join(m.WhoisInfo.Domain.Status, ", "),
+		"* Status: %s%s",
+		domainStatus(m),
 		nagios.CheckOutputEOL,
 	)
 
@@ -227,21 +231,21 @@ func (m Metadata) Report() string {
 	fmt.Fprintf(
 		&summary,
 		"* Registrar Name: %v%s",
-		m.WhoisInfo.Registrar.Name,
+		registrarName(m),
 		nagios.CheckOutputEOL,
 	)
 
 	fmt.Fprintf(
 		&summary,
 		"* Registrant Name: %v%s",
-		m.WhoisInfo.Registrant.Name,
+		registrantName(m),
 		nagios.CheckOutputEOL,
 	)
 
 	fmt.Fprintf(
 		&summary,
 		"* Registrant Email: %v%s",
-		m.WhoisInfo.Registrant.Email,
+		registrantEmail(m),
 		nagios.CheckOutputEOL,
 	)
 
@@ -380,4 +384,44 @@ func FormattedExpiration(expireTime time.Time) string {
 
 	return formattedTimeRemainingStr
 
+}
+
+// domainStatus provides the domain status value from the WhoIS record or the
+// fallback/placeholder value for the field.
+func domainStatus(m Metadata) string {
+	if m.WhoisInfo.Domain != nil && len(m.WhoisInfo.Domain.Status) != 0 {
+		return strings.Join(m.WhoisInfo.Domain.Status, ", ")
+	}
+
+	return defaultWhoISPlaceholderValue
+}
+
+// registrarName provides the registrar name value from the WhoIS record or
+// the fallback/placeholder value for the field.
+func registrarName(m Metadata) string {
+	if m.WhoisInfo.Registrar != nil && m.WhoisInfo.Registrar.Name != "" {
+		return m.WhoisInfo.Registrar.Name
+	}
+
+	return defaultWhoISPlaceholderValue
+}
+
+// registrantName provides the registrant name value from the WhoIS record or
+// the fallback/placeholder value for the field.
+func registrantName(m Metadata) string {
+	if m.WhoisInfo.Registrant != nil && m.WhoisInfo.Registrant.Name != "" {
+		return m.WhoisInfo.Registrant.Name
+	}
+
+	return defaultWhoISPlaceholderValue
+}
+
+// registrantEmail provides the registrant email value from the WhoIS record
+// or the fallback/placeholder value for the field.
+func registrantEmail(m Metadata) string {
+	if m.WhoisInfo.Registrant != nil && m.WhoisInfo.Registrant.Email != "" {
+		return m.WhoisInfo.Registrant.Email
+	}
+
+	return defaultWhoISPlaceholderValue
 }
