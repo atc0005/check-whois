@@ -65,7 +65,7 @@ more detailed information for use in email and Teams notifications
     the service check result
 
 - Optional, leveled logging using `rs/zerolog` package
-  - JSON-format output (to `stderr`)
+  - [`logfmt`][logfmt] format output (to `stderr`)
   - choice of `disabled`, `panic`, `fatal`, `error`, `warn`, `info` (the
     default), `debug` or `trace`.
 
@@ -343,5 +343,7 @@ SOFTWARE.
 [go-docs-install]: <https://golang.org/doc/install>  "Install Go"
 
 [go-supported-releases]: <https://go.dev/doc/devel/release#policy> "Go Release Policy"
+
+[logfmt]: <https://brandur.org/logfmt>
 
 <!-- []: PLACEHOLDER "DESCRIPTION_HERE" -->
