@@ -31,8 +31,10 @@ Go-based tooling to monitor WHOIS records.
   - [`WARNING` result](#warning-result)
   - [`CRITICAL` result](#critical-result)
 - [License](#license)
-- [Related projects](#related-projects)
 - [References](#references)
+  - [Related projects](#related-projects)
+  - [Dependencies](#dependencies)
+  - [General](#general)
 
 ## Project home
 
@@ -316,7 +318,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
-## Related projects
+## References
+
+### Related projects
 
 - <https://github.com/atc0005/send2teams>
 - <https://github.com/atc0005/check-whois>
@@ -327,12 +331,16 @@ SOFTWARE.
 - <https://github.com/atc0005/nagios-debug>
 - <https://github.com/atc0005/go-nagios>
 
-## References
+### Dependencies
 
 - <https://github.com/likexian/whois>
 - <https://github.com/likexian/whois-parser>
 - <https://github.com/rs/zerolog>
 - <https://github.com/atc0005/go-nagios>
+
+### General
+
+- <https://www.iana.org/domains/root/db>
 
 <!-- Footnotes here  -->
 
