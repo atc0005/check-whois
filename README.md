@@ -15,6 +15,7 @@ Go-based tooling to monitor WHOIS records.
 - [Project home](#project-home)
 - [Overview](#overview)
   - [`check_whois`](#check_whois)
+    - [Performance Data](#performance-data)
 - [Features](#features)
 - [Changelog](#changelog)
 - [Requirements](#requirements)
@@ -57,6 +58,26 @@ The output for this application is designed to provide the one-line summary
 needed by Nagios for quick identification of a problem while providing longer,
 more detailed information for use in email and Teams notifications
 ([atc0005/send2teams](https://github.com/atc0005/send2teams)).
+
+#### Performance Data
+
+Initial support has been added for emitting Performance Data / Metrics, but
+refinement suggestions are welcome.
+
+Consult the tables below for the metrics implemented thus far.
+
+Please add to an existing
+[Discussion](https://github.com/atc0005/check-whois/discussions) thread
+(if applicable) or [open a new
+one](https://github.com/atc0005/check-whois/discussions/new) with any
+feedback that you may have. Thanks in advance!
+
+| Emitted Performance Data / Metric | Unit of Measurement | Meaning                         |
+| --------------------------------- | ------------------- | ------------------------------- |
+| `time`                            | seconds             | Runtime for plugin              |
+| `expiration`                      | days                | Until domain expires.           |
+| `since_update`                    | days                | Since domain was last updated.  |
+| `since_creation`                  | days                | Since domain was first created. |
 
 ## Features
 
