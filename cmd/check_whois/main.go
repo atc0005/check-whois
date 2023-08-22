@@ -129,6 +129,41 @@ func main() {
 
 	}
 
+	pd, perfDataErr := getPerfData(d, cfg.AgeCritical, cfg.AgeWarning)
+	if perfDataErr != nil {
+		log.Error().
+			Err(perfDataErr).
+			Msg("failed to generate performance data")
+
+		// Surface the error in plugin output.
+		plugin.AddError(perfDataErr)
+
+		plugin.ExitStatusCode = nagios.StateUNKNOWNExitCode
+		plugin.ServiceOutput = fmt.Sprintf(
+			"%s: Failed to generate performance data metrics",
+			nagios.StateUNKNOWNLabel,
+		)
+
+		return
+	}
+
+	if err := plugin.AddPerfData(false, pd...); err != nil {
+		log.Error().
+			Err(err).
+			Msg("failed to add performance data")
+
+		// Surface the error in plugin output.
+		plugin.AddError(err)
+
+		plugin.ExitStatusCode = nagios.StateUNKNOWNExitCode
+		plugin.ServiceOutput = fmt.Sprintf(
+			"%s: Failed to process performance data metrics",
+			nagios.StateUNKNOWNLabel,
+		)
+
+		return
+	}
+
 	switch {
 
 	case d.IsExpired():

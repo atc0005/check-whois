@@ -32,6 +32,9 @@ var ErrDomainExpired = errors.New("domain has expired")
 // ErrDomainExpiring is returned whenever a specified domain is expiring.
 var ErrDomainExpiring = errors.New("domain is expiring")
 
+// ErrMissingValue indicates that an expected value was missing.
+var ErrMissingValue = errors.New("missing expected value")
+
 // Metadata represents the details for a specified domain, including the
 // parsed WHOIS info, expiration (age) thresholds and parsed date values.
 type Metadata struct {
@@ -333,6 +336,67 @@ func (m Metadata) ServiceState() nagios.ServiceState {
 		ExitCode: stateExitCode,
 	}
 
+}
+
+// UntilExpiration evaluates the given domain metadata and returns the number
+// of days until the domain expires. If already expired, a negative number is
+// returned indicating how many days the domain is past expiration.
+//
+// An error is returned if the pointer to the given domain metadata is nil.
+func UntilExpiration(d *Metadata) (int, error) {
+	if d == nil {
+		return 0, fmt.Errorf(
+			"func UntilExpiration: unable to determine days until expiration: %w",
+			ErrMissingValue,
+		)
+	}
+
+	timeRemaining := time.Until(d.ExpirationDate).Hours()
+
+	// Toss remainder so that we only get the whole number of days
+	daysRemaining := int(math.Trunc(timeRemaining / 24))
+
+	return daysRemaining, nil
+}
+
+// SinceUpdate evaluates the given domain metadata and returns the number of
+// days since the domain metadata was last updated.
+//
+// An error is returned if the pointer to the given domain metadata is nil.
+func SinceUpdate(d *Metadata) (int, error) {
+	if d == nil {
+		return 0, fmt.Errorf(
+			"func SinceUpdate: unable to determine days since last update: %w",
+			ErrMissingValue,
+		)
+	}
+
+	timeElapsed := time.Since(d.UpdatedDate).Hours()
+
+	// Toss remainder so that we only get the whole number of days
+	daysSince := int(math.Trunc(timeElapsed / 24))
+
+	return daysSince, nil
+}
+
+// SinceCreation evaluates the given domain metadata and returns the number of
+// days since the domain metadata was first created.
+//
+// An error is returned if the pointer to the given domain metadata is nil.
+func SinceCreation(d *Metadata) (int, error) {
+	if d == nil {
+		return 0, fmt.Errorf(
+			"func SinceCreation: unable to determine days since creation: %w",
+			ErrMissingValue,
+		)
+	}
+
+	timeElapsed := time.Since(d.CreatedDate).Hours()
+
+	// Toss remainder so that we only get the whole number of days
+	daysSince := int(math.Trunc(timeElapsed / 24))
+
+	return daysSince, nil
 }
 
 // FormattedExpiration receives a Time value and converts it to a string
