@@ -83,6 +83,8 @@ feedback that you may have. Thanks in advance!
 
 - Nagios plugin for monitoring expiration of WHOIS records
 
+- Optional use of custom WHOIS server
+
 - Optional disabling of referral lookups
 
 - Optional branding "signature"
