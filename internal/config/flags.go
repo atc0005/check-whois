@@ -15,6 +15,8 @@ func (c *Config) handleFlagsConfig() {
 
 	flag.BoolVar(&c.EmitBranding, "branding", defaultBranding, brandingFlagHelp)
 
+	flag.BoolVar(&c.DisableReferralLookups, "disable-ref-lookups", defaultDisableReferralLookups, disableReferralLookupsFlagHelp)
+
 	flag.IntVar(&c.AgeWarning, "w", defaultDomainExpireAgeWarning, domainExpireAgeWarningFlagHelp)
 	flag.IntVar(&c.AgeWarning, "age-warning", defaultDomainExpireAgeWarning, domainExpireAgeWarningFlagHelp)
 

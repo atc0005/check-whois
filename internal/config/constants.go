@@ -16,17 +16,19 @@ const (
 	versionFlagHelp                 string = "Whether to display application version and then immediately exit application."
 	logLevelFlagHelp                string = "Sets log level to one of disabled, panic, fatal, error, warn, info, debug or trace."
 	brandingFlagHelp                string = "Toggles emission of branding details with plugin status details. This output is disabled by default."
+	disableReferralLookupsFlagHelp  string = "Disables WHOIS server referral lookups. Lookups are enabled by default."
 	domainExpireAgeWarningFlagHelp  string = "The number of days remaining before domain expiration when a WARNING state is triggered."
 	domainExpireAgeCriticalFlagHelp string = "The number of days remaining before domain expiration when a CRITICAL state is triggered."
 )
 
 // Default flag settings if not overridden by user input
 const (
-	defaultDomain                string = ""
-	defaultRegistrarServer       string = ""
-	defaultLogLevel              string = "info"
-	defaultBranding              bool   = false
-	defaultDisplayVersionAndExit bool   = false
+	defaultDomain                 string = ""
+	defaultRegistrarServer        string = ""
+	defaultLogLevel               string = "info"
+	defaultDisableReferralLookups bool   = false
+	defaultBranding               bool   = false
+	defaultDisplayVersionAndExit  bool   = false
 
 	// Default WARNING threshold is 30 days
 	defaultDomainExpireAgeWarning int = 30

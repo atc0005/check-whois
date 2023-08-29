@@ -85,6 +85,8 @@ feedback that you may have. Thanks in advance!
 
 - Optional use of custom WHOIS server
 
+- Optional disabling of referral lookups
+
 - Optional branding "signature"
   - used to indicate what Nagios plugin (and what version) is responsible for
     the service check result
@@ -198,16 +200,17 @@ binaries.
 
 #### `check_whois`
 
-| Flag                | Required | Default | Repeat | Possible                                                                | Description                                                                                          |
-| ------------------- | -------- | ------- | ------ | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `branding`          | No       | `false` | No     | `branding`                                                              | Toggles emission of branding details with plugin status details. This output is disabled by default. |
-| `h`, `help`         | No       | `false` | No     | `h`, `help`                                                             | Show Help text along with the list of supported flags.                                               |
-| `v`, `version`      | No       | `false` | No     | `v`, `version`                                                          | Whether to display application version and then immediately exit application.                        |
-| `c`, `age-critical` | No       | 15      | No     | *positive whole number of days*                                         | The number of days remaining before domain expiration when a `CRITICAL` state is triggered.          |
-| `w`, `age-warning`  | No       | 30      | No     | *positive whole number of days*                                         | The number of days remaining before domain expiration when a `WARNING` state is triggered.           |
-| `ll`, `log-level`   | No       | `info`  | No     | `disabled`, `panic`, `fatal`, `error`, `warn`, `info`, `debug`, `trace` | Log message priority filter. Log messages with a lower level are ignored.                            |
-| `d`, `domain`       | **Yes**  |         | No     | *domain name*                                                           | The name of the domain whose WHOIS records will be evaluated.                                        |
-| `s`, `server`       | No       |         | No     | *valid WHOIS server fqdn*                                               | The name of the optional domain registrar WHOIS server to use for queries.                           |
+| Flag                  | Required | Default | Repeat | Possible                                                                | Description                                                                                          |
+| --------------------- | -------- | ------- | ------ | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `branding`            | No       | `false` | No     | `branding`                                                              | Toggles emission of branding details with plugin status details. This output is disabled by default. |
+| `h`, `help`           | No       | `false` | No     | `h`, `help`                                                             | Show Help text along with the list of supported flags.                                               |
+| `v`, `version`        | No       | `false` | No     | `v`, `version`                                                          | Whether to display application version and then immediately exit application.                        |
+| `c`, `age-critical`   | No       | 15      | No     | *positive whole number of days*                                         | The number of days remaining before domain expiration when a `CRITICAL` state is triggered.          |
+| `w`, `age-warning`    | No       | 30      | No     | *positive whole number of days*                                         | The number of days remaining before domain expiration when a `WARNING` state is triggered.           |
+| `ll`, `log-level`     | No       | `info`  | No     | `disabled`, `panic`, `fatal`, `error`, `warn`, `info`, `debug`, `trace` | Log message priority filter. Log messages with a lower level are ignored.                            |
+| `d`, `domain`         | **Yes**  |         | No     | *domain name*                                                           | The name of the domain whose WHOIS records will be evaluated.                                        |
+| `s`, `server`         | No       |         | No     | *valid WHOIS server fqdn*                                               | The name of the optional domain registrar WHOIS server to use for queries.                           |
+| `disable-ref-lookups` | No       | `false` | No     | `true`, `false`                                                         | Disables WHOIS server referral lookups. Lookups are enabled by default.                              |
 
 ## Examples
 

@@ -87,6 +87,10 @@ type Config struct {
 	// their own branding output.
 	EmitBranding bool
 
+	// DisableReferralLookups controls whether WHOIS server referral lookups
+	// should be disabled.
+	DisableReferralLookups bool
+
 	// ShowVersion is a flag indicating whether the user opted to display only
 	// the version string and then immediately exit the application.
 	ShowVersion bool

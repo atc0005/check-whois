@@ -76,11 +76,18 @@ func main() {
 
 	var whoisRaw string
 	var err error
+
+	client := whois.NewClient()
+
+	// Explicitly set referral lookup behavior. Referral lookups are performed
+	// unless requested otherwise by the sysadmin.
+	client.SetDisableReferral(cfg.DisableReferralLookups)
+
 	switch {
 	case cfg.RegistrarServer != "":
-		whoisRaw, err = whois.Whois(cfg.Domain, cfg.RegistrarServer)
+		whoisRaw, err = client.Whois(cfg.Domain, cfg.RegistrarServer)
 	default:
-		whoisRaw, err = whois.Whois(cfg.Domain)
+		whoisRaw, err = client.Whois(cfg.Domain)
 	}
 	if err != nil {
 		log.Error().Err(err).Msg("failed to query WHOIS data")
