@@ -13,7 +13,7 @@ go 1.20
 require (
 	github.com/atc0005/go-nagios v0.16.0
 	github.com/likexian/whois v1.15.0
-	github.com/likexian/whois-parser v1.24.8
+	github.com/likexian/whois-parser v1.24.9
 	github.com/rs/zerolog v1.30.0
 
 )
