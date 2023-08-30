@@ -26,6 +26,23 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.5.0] - 2023-08-30
+
+### Added
+
+- (GH-265) Add flag to explicitly disable referral lookups
+
+### Changed
+
+- Dependencies
+  - `atc0005/go-ci`
+    - `go-ci-oldstable-build-v0.13.5` to `go-ci-oldstable-build-v0.13.7`
+  - `github.com/likexian/whois`
+    - `v1.15.0` to `v1.15.1`
+  - `github.com/likexian/whois-parser`
+    - `v1.24.8` to `v1.24.9`
+- (GH-271) README: Note optional use of custom WHOIS server
+
 ## [v0.4.0] - 2023-08-22
 
 ### Added
@@ -166,7 +183,7 @@ The following types of changes will be recorded in this file:
   - `atc0005/go-ci`
     - `go-ci-oldstable-build-v0.10.3` to `go-ci-oldstable-build-v0.10.5`
   - `github.com/likexian/whois`
-    - `v1.14.6` to `v1.50.0`
+    - `v1.14.6` to `v1.15.0`
   - `github.com/likexian/whois-parser`
     - `v1.24.7` to `v1.24.8`
   - `github.com/likexian/gokit`
@@ -632,7 +649,8 @@ Features of this release:
   - choice of `disabled`, `panic`, `fatal`, `error`, `warn`, `info` (the
     default), `debug` or `trace`.
 
-[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.5.0...HEAD
+[v0.5.0]: https://github.com/atc0005/check-whois/releases/tag/v0.5.0
 [v0.4.0]: https://github.com/atc0005/check-whois/releases/tag/v0.4.0
 [v0.3.5]: https://github.com/atc0005/check-whois/releases/tag/v0.3.5
 [v0.3.4]: https://github.com/atc0005/check-whois/releases/tag/v0.3.4
