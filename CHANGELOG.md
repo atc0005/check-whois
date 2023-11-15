@@ -26,6 +26,24 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.5.2] - 2023-11-15
+
+### Changed
+
+#### Dependency Updates
+
+- (GH-332) canary: bump golang from 1.20.10 to 1.20.11 in /dependabot/docker/go
+- (GH-316) canary: bump golang from 1.20.8 to 1.20.10 in /dependabot/docker/go
+- (GH-321) docker: bump atc0005/go-ci from go-ci-oldstable-build-v0.13.10 to go-ci-oldstable-build-v0.13.12 in /dependabot/docker/builds
+- (GH-337) docker: bump atc0005/go-ci from go-ci-oldstable-build-v0.13.12 to go-ci-oldstable-build-v0.14.1 in /dependabot/docker/builds
+- (GH-325) go.mod: bump github.com/mattn/go-isatty from 0.0.19 to 0.0.20
+- (GH-302) go.mod: bump github.com/rs/zerolog from 1.30.0 to 1.31.0
+- (GH-314) go.mod: bump golang.org/x/net from 0.15.0 to 0.17.0
+- (GH-334) go.mod: bump golang.org/x/net from 0.17.0 to 0.18.0
+- (GH-307) go.mod: bump golang.org/x/sys from 0.12.0 to 0.13.0
+- (GH-329) go.mod: bump golang.org/x/sys from 0.13.0 to 0.14.0
+- (GH-328) go.mod: bump golang.org/x/text from 0.13.0 to 0.14.0
+
 ## [v0.5.1] - 2023-10-06
 
 ### Changed
@@ -664,7 +682,8 @@ Features of this release:
   - choice of `disabled`, `panic`, `fatal`, `error`, `warn`, `info` (the
     default), `debug` or `trace`.
 
-[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.5.1...HEAD
+[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.5.2...HEAD
+[v0.5.2]: https://github.com/atc0005/check-whois/releases/tag/v0.5.2
 [v0.5.1]: https://github.com/atc0005/check-whois/releases/tag/v0.5.1
 [v0.5.0]: https://github.com/atc0005/check-whois/releases/tag/v0.5.0
 [v0.4.0]: https://github.com/atc0005/check-whois/releases/tag/v0.4.0
