@@ -26,6 +26,18 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.5.3] - 2023-12-08
+
+### Changed
+
+#### Dependency Updates
+
+- (GH-348) canary: bump golang from 1.20.11 to 1.20.12 in /dependabot/docker/go
+- (GH-350) docker: bump atc0005/go-ci from go-ci-oldstable-build-v0.14.1 to go-ci-oldstable-build-v0.14.2 in /dependabot/docker/builds
+- (GH-343) go.mod: bump github.com/likexian/whois-parser from 1.24.9 to 1.24.10
+- (GH-345) go.mod: bump golang.org/x/net from 0.18.0 to 0.19.0
+- (GH-344) go.mod: bump golang.org/x/sys from 0.14.0 to 0.15.0
+
 ## [v0.5.2] - 2023-11-15
 
 ### Changed
@@ -682,7 +694,8 @@ Features of this release:
   - choice of `disabled`, `panic`, `fatal`, `error`, `warn`, `info` (the
     default), `debug` or `trace`.
 
-[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.5.2...HEAD
+[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.5.3...HEAD
+[v0.5.3]: https://github.com/atc0005/check-whois/releases/tag/v0.5.3
 [v0.5.2]: https://github.com/atc0005/check-whois/releases/tag/v0.5.2
 [v0.5.1]: https://github.com/atc0005/check-whois/releases/tag/v0.5.1
 [v0.5.0]: https://github.com/atc0005/check-whois/releases/tag/v0.5.0
