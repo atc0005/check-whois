@@ -26,6 +26,18 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.5.4] - 2024-01-19
+
+### Changed
+
+#### Dependency Updates
+
+- (GH-363) canary: bump golang from 1.20.12 to 1.20.13 in /dependabot/docker/go
+- (GH-364) docker: bump atc0005/go-ci from go-ci-oldstable-build-v0.14.2 to go-ci-oldstable-build-v0.14.3 in /dependabot/docker/builds
+- (GH-356) ghaw: bump github/codeql-action from 2 to 3
+- (GH-360) go.mod: bump golang.org/x/net from 0.19.0 to 0.20.0
+- (GH-358) go.mod: bump golang.org/x/sys from 0.15.0 to 0.16.0
+
 ## [v0.5.3] - 2023-12-08
 
 ### Changed
@@ -694,7 +706,8 @@ Features of this release:
   - choice of `disabled`, `panic`, `fatal`, `error`, `warn`, `info` (the
     default), `debug` or `trace`.
 
-[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.5.3...HEAD
+[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.5.4...HEAD
+[v0.5.4]: https://github.com/atc0005/check-whois/releases/tag/v0.5.4
 [v0.5.3]: https://github.com/atc0005/check-whois/releases/tag/v0.5.3
 [v0.5.2]: https://github.com/atc0005/check-whois/releases/tag/v0.5.2
 [v0.5.1]: https://github.com/atc0005/check-whois/releases/tag/v0.5.1
