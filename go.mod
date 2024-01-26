@@ -11,7 +11,7 @@ module github.com/atc0005/check-whois
 go 1.20
 
 require (
-	github.com/atc0005/go-nagios v0.16.0
+	github.com/atc0005/go-nagios v0.16.1
 	github.com/likexian/whois v1.15.1
 	github.com/likexian/whois-parser v1.24.10
 	github.com/rs/zerolog v1.31.0

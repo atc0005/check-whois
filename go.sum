@@ -1,9 +1,9 @@
-github.com/atc0005/go-nagios v0.16.0 h1:fOcUBcYY6la+lkg4cOGL/ExDNM1HOiHnXG0np8IyJ+Y=
-github.com/atc0005/go-nagios v0.16.0/go.mod h1:TlE2JBMuI64lM01MqobahTA94hgtVefvEzyKtvIHToo=
+github.com/atc0005/go-nagios v0.16.1 h1:ef0AWjY9sqWq6dhfJuXtASe7dCkVDonoZhtYvNYWBlo=
+github.com/atc0005/go-nagios v0.16.1/go.mod h1:NSm1HeneeyBe27BYzhC7FMx4gg3x8PddeZIMX9YZj5M=
 github.com/coreos/go-systemd/v22 v22.5.0/go.mod h1:Y58oyj3AT4RCenI/lSvhwexgC+NSVTIJ3seZv2GcEnc=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/godbus/dbus/v5 v5.0.4/go.mod h1:xhWf0FNVPg57R7Z0UbKHbJfkEywrmjJnf7w5xrFpKfA=
-github.com/google/go-cmp v0.5.9 h1:O2Tfq5qg4qc4AmwVlvv0oLiVAGB7enBSJ2x2DqQFi38=
+github.com/google/go-cmp v0.6.0 h1:ofyhxvXcZhMsU5ulbFiLKl/XBFqE1GSq7atu8tAmTRI=
 github.com/likexian/gokit v0.25.13 h1:p2Uw3+6fGG53CwdU2Dz0T6bOycdb2+bAFAa3ymwWVkM=
 github.com/likexian/gokit v0.25.13/go.mod h1:qQhEWFBEfqLCO3/vOEo2EDKd+EycekVtUK4tex+l2H4=
 github.com/likexian/whois v1.15.1 h1:6vTMI8n9s1eJdmcO4R9h1x99aQWIZZX1CD3am68gApU=
