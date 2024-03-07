@@ -26,6 +26,24 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.5.6] - 2024-03-07
+
+### Changed
+
+#### Dependency Updates
+
+- (GH-418) Add todo/release label to "Go Runtime" PRs
+- (GH-407) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.15.2 to go-ci-oldstable-build-v0.15.3 in /dependabot/docker/builds
+- (GH-415) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.15.3 to go-ci-oldstable-build-v0.15.4 in /dependabot/docker/builds
+- (GH-403) canary: bump golang from 1.21.6 to 1.21.7 in /dependabot/docker/go
+- (GH-400) docker: bump atc0005/go-ci from go-ci-oldstable-build-v0.15.0 to go-ci-oldstable-build-v0.15.2 in /dependabot/docker/builds
+- (GH-410) Go Dependency: Bump golang.org/x/net from 0.21.0 to 0.22.0
+- (GH-409) Go Dependency: Bump golang.org/x/sys from 0.17.0 to 0.18.0
+- (GH-414) Go Runtime: Bump golang from 1.21.7 to 1.21.8 in /dependabot/docker/go
+- (GH-405) Update Dependabot PR prefixes (redux)
+- (GH-404) Update Dependabot PR prefixes
+- (GH-402) Update project to Go 1.21 series
+
 ## [v0.5.5] - 2024-02-15
 
 ### Changed
@@ -727,7 +745,8 @@ Features of this release:
   - choice of `disabled`, `panic`, `fatal`, `error`, `warn`, `info` (the
     default), `debug` or `trace`.
 
-[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.5.5...HEAD
+[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.5.6...HEAD
+[v0.5.6]: https://github.com/atc0005/check-whois/releases/tag/v0.5.6
 [v0.5.5]: https://github.com/atc0005/check-whois/releases/tag/v0.5.5
 [v0.5.4]: https://github.com/atc0005/check-whois/releases/tag/v0.5.4
 [v0.5.3]: https://github.com/atc0005/check-whois/releases/tag/v0.5.3
