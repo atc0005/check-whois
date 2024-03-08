@@ -91,6 +91,8 @@ func Prepare(text, ext string) (string, bool) { //nolint:cyclop
 		return prepareBY(text), true
 	case "ua":
 		return prepareUA(text), true
+	case "at":
+		return prepareAT(text), true
 	default:
 		return text, false
 	}
@@ -712,6 +714,7 @@ func prepareJP(text string) string {
 			if strings.ToLower(token) == "registrant" {
 				v = fmt.Sprintf("registrant name: %s", vs[1])
 			}
+			v = prepareSecondLevelJP(v, token, vs[1])
 		} else {
 			if token == addressToken {
 				result += ", " + v
@@ -722,6 +725,29 @@ func prepareJP(text string) string {
 	}
 
 	return result
+}
+
+// prepareJP prepares specific mappings for second level .jp domains
+// examples include:
+// - co.jp
+// - ac.jp
+// - go.jp
+// - or.jp
+// - ad.jp
+// - ne.jp
+// - gr.jp
+// - ed.jp
+func prepareSecondLevelJP(original string, token string, value string) string {
+	if strings.ToLower(token) == "administrative contact" {
+		return fmt.Sprintf("Administrative Contact ID: %s", strings.TrimSpace(value))
+	}
+	if strings.ToLower(token) == "technical contact" {
+		return fmt.Sprintf("Technical Contact ID: %s", strings.TrimSpace(value))
+	}
+	if strings.ToLower(token) == "organization" || strings.ToLower(token) == "network service name" {
+		return fmt.Sprintf("Registrant Organization: %s", strings.TrimSpace(value))
+	}
+	return original
 }
 
 // prepareUK do prepare the .uk domain
@@ -1333,5 +1359,85 @@ func prepareUA(text string) string {
 		result += v + "\n"
 	}
 
+	return result
+}
+
+// prepareAT prepares the .at domain
+func prepareAT(text string) string {
+	result := ""
+	registrantID := ""
+	techID := ""
+
+	tokens := map[string]string{
+		"street address": "address",
+		"postal code":    "address",
+		"city":           "address",
+		"country":        "address",
+		"e-mail":         "email",
+		"nic-hdl":        "id",
+		"personname":     "name",
+	}
+
+	formatLine := func(line, token string) string {
+		before, after, _ := strings.Cut(line, ":")
+		key := strings.TrimSpace(before)
+		if t, ok := tokens[key]; ok {
+			key = t
+		}
+		val := strings.TrimSpace(after)
+		return fmt.Sprintf("%s %s: %s", token, key, val)
+	}
+
+	for _, v := range strings.Split(text, "\n\n") {
+		v = strings.TrimSpace(v)
+		if strings.HasPrefix(v, "%") {
+			continue
+		}
+		if strings.Contains(v, ":") {
+			b := strings.Split(v, "\n")
+			if strings.HasPrefix(b[0], "domain") {
+				for _, l := range b {
+					w := ""
+					if before, after, ok := strings.Cut(l, ":"); ok {
+						key := strings.TrimSpace(before)
+						val := strings.TrimSpace(after)
+						switch key {
+						case "domain":
+							w = fmt.Sprintf("%s: %s", "domain name", val)
+						case "registrant":
+							registrantID = val
+						case "tech-c":
+							techID = val
+						case "changed":
+							w = fmt.Sprintf("%s: %s", "updated_date", val)
+						case "nserver":
+							w = fmt.Sprintf("%s: %s", "name_servers", val)
+						default:
+							w = fmt.Sprintf("domain %s: %s", key, val)
+						}
+						if w != "" {
+							result += w + "\n"
+						}
+					}
+				}
+			} else if strings.HasPrefix(b[0], "personname") {
+				token := ""
+				if strings.Contains(v, registrantID) {
+					token = "registrant"
+				} else if strings.Contains(v, techID) {
+					token = "technical contact"
+				}
+				if token == "" {
+					result += v + "\n"
+				} else {
+					for _, l := range strings.Split(v, "\n") {
+						result += formatLine(l, token) + "\n"
+					}
+				}
+			} else {
+				result += v + "\n"
+			}
+		}
+	}
 	return result
 }
