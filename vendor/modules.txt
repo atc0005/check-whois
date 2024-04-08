@@ -6,7 +6,7 @@ github.com/atc0005/go-nagios
 github.com/likexian/gokit/assert
 github.com/likexian/gokit/xrand
 github.com/likexian/gokit/xslice
-# github.com/likexian/whois v1.15.1
+# github.com/likexian/whois v1.15.2
 ## explicit; go 1.20
 github.com/likexian/whois
 # github.com/likexian/whois-parser v1.24.12
@@ -24,12 +24,12 @@ github.com/rs/zerolog
 github.com/rs/zerolog/internal/cbor
 github.com/rs/zerolog/internal/json
 github.com/rs/zerolog/log
-# golang.org/x/net v0.22.0
+# golang.org/x/net v0.24.0
 ## explicit; go 1.18
 golang.org/x/net/idna
 golang.org/x/net/internal/socks
 golang.org/x/net/proxy
-# golang.org/x/sys v0.18.0
+# golang.org/x/sys v0.19.0
 ## explicit; go 1.18
 golang.org/x/sys/unix
 # golang.org/x/text v0.14.0
