@@ -26,6 +26,24 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.5.7] - 2024-04-11
+
+### Changed
+
+#### Dependency Updates
+
+- (GH-424) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.15.4 to go-ci-oldstable-build-v0.16.0 in /dependabot/docker/builds
+- (GH-426) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.16.0 to go-ci-oldstable-build-v0.16.1 in /dependabot/docker/builds
+- (GH-428) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.16.1 to go-ci-oldstable-build-v0.19.0 in /dependabot/docker/builds
+- (GH-429) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.19.0 to go-ci-oldstable-build-v0.20.0 in /dependabot/docker/builds
+- (GH-440) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.20.0 to go-ci-oldstable-build-v0.20.1 in /dependabot/docker/builds
+- (GH-442) Go Dependency: Bump github.com/likexian/whois from 1.15.1 to 1.15.2
+- (GH-421) Go Dependency: Bump github.com/likexian/whois-parser from 1.24.10 to 1.24.11
+- (GH-441) Go Dependency: Bump github.com/likexian/whois-parser from 1.24.11 to 1.24.12
+- (GH-435) Go Dependency: Bump golang.org/x/net from 0.22.0 to 0.24.0
+- (GH-436) Go Dependency: Bump golang.org/x/sys from 0.18.0 to 0.19.0
+- (GH-434) Go Runtime: Bump golang from 1.21.8 to 1.21.9 in /dependabot/docker/go
+
 ## [v0.5.6] - 2024-03-07
 
 ### Changed
@@ -745,7 +763,8 @@ Features of this release:
   - choice of `disabled`, `panic`, `fatal`, `error`, `warn`, `info` (the
     default), `debug` or `trace`.
 
-[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.5.6...HEAD
+[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.5.7...HEAD
+[v0.5.7]: https://github.com/atc0005/check-whois/releases/tag/v0.5.7
 [v0.5.6]: https://github.com/atc0005/check-whois/releases/tag/v0.5.6
 [v0.5.5]: https://github.com/atc0005/check-whois/releases/tag/v0.5.5
 [v0.5.4]: https://github.com/atc0005/check-whois/releases/tag/v0.5.4
