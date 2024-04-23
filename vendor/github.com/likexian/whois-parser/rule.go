@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2023 Li Kexian
+ * Copyright 2014-2024 Li Kexian
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -152,9 +152,10 @@ var (
 		"registrant contact state province":      "registrant_state_province",
 		"registrant zipcode":                     "registrant_postal_code",
 		"registrant zip code":                    "registrant_postal_code",
-		"registrant postal code":                 "registrant_postal_code",
-		"registrant contact postal code":         "registrant_postal_code",
 		"registrant postalcode":                  "registrant_postal_code",
+		"registrant postal code":                 "registrant_postal_code",
+		"registrant contact postalcode":          "registrant_postal_code",
+		"registrant contact postal code":         "registrant_postal_code",
 		"registrant country":                     "registrant_country",
 		"registrant country economy":             "registrant_country",
 		"registrant contact country":             "registrant_country",
