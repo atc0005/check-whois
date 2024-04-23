@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2023 Li Kexian
+ * Copyright 2014-2024 Li Kexian
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -1427,17 +1427,12 @@ func prepareAT(text string) string {
 				} else if strings.Contains(v, techID) {
 					token = "technical contact"
 				}
-				if token == "" {
-					result += v + "\n"
-				} else {
-					for _, l := range strings.Split(v, "\n") {
-						result += formatLine(l, token) + "\n"
-					}
+				for _, l := range strings.Split(v, "\n") {
+					result += formatLine(l, token) + "\n"
 				}
-			} else {
-				result += v + "\n"
 			}
 		}
 	}
+
 	return result
 }
