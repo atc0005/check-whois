@@ -9,7 +9,7 @@ github.com/likexian/gokit/xslice
 # github.com/likexian/whois v1.15.3
 ## explicit; go 1.21
 github.com/likexian/whois
-# github.com/likexian/whois-parser v1.24.15
+# github.com/likexian/whois-parser v1.24.16
 ## explicit; go 1.21
 github.com/likexian/whois-parser
 # github.com/mattn/go-colorable v0.1.13
