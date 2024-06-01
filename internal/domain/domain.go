@@ -195,7 +195,7 @@ func (m Metadata) Report() string {
 
 	var summary strings.Builder
 
-	fmt.Fprintf(
+	_, _ = fmt.Fprintf(
 		&summary,
 		"WHOIS metadata for %q domain:%s%s",
 		m.Name,
@@ -203,49 +203,49 @@ func (m Metadata) Report() string {
 		nagios.CheckOutputEOL,
 	)
 
-	fmt.Fprintf(
+	_, _ = fmt.Fprintf(
 		&summary,
 		"* Status: %s%s",
 		domainStatus(m),
 		nagios.CheckOutputEOL,
 	)
 
-	fmt.Fprintf(
+	_, _ = fmt.Fprintf(
 		&summary,
 		"* Creation Date: %v%s",
 		m.CreatedDate.Format(DomainDateLayout),
 		nagios.CheckOutputEOL,
 	)
 
-	fmt.Fprintf(
+	_, _ = fmt.Fprintf(
 		&summary,
 		"* Updated Date: %v%s",
 		m.UpdatedDate.Format(DomainDateLayout),
 		nagios.CheckOutputEOL,
 	)
 
-	fmt.Fprintf(
+	_, _ = fmt.Fprintf(
 		&summary,
 		"* Expiration Date: %v%s",
 		m.ExpirationDate.Format(DomainDateLayout),
 		nagios.CheckOutputEOL,
 	)
 
-	fmt.Fprintf(
+	_, _ = fmt.Fprintf(
 		&summary,
 		"* Registrar Name: %v%s",
 		registrarName(m),
 		nagios.CheckOutputEOL,
 	)
 
-	fmt.Fprintf(
+	_, _ = fmt.Fprintf(
 		&summary,
 		"* Registrant Name: %v%s",
 		registrantName(m),
 		nagios.CheckOutputEOL,
 	)
 
-	fmt.Fprintf(
+	_, _ = fmt.Fprintf(
 		&summary,
 		"* Registrant Email: %v%s",
 		registrantEmail(m),
