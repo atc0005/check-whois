@@ -26,6 +26,21 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.5.10] - 2024-07-10
+
+### Changed
+
+#### Dependency Updates
+
+- (GH-499) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.20.7 to go-ci-oldstable-build-v0.20.8 in /dependabot/docker/builds
+- (GH-503) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.20.8 to go-ci-oldstable-build-v0.21.2 in /dependabot/docker/builds
+- (GH-511) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.21.2 to go-ci-oldstable-build-v0.21.3 in /dependabot/docker/builds
+- (GH-513) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.21.3 to go-ci-oldstable-build-v0.21.4 in /dependabot/docker/builds
+- (GH-506) Go Dependency: Bump github.com/likexian/whois-parser from 1.24.16 to 1.24.18
+- (GH-518) Go Dependency: Bump golang.org/x/net from 0.26.0 to 0.27.0
+- (GH-514) Go Dependency: Bump golang.org/x/sys from 0.21.0 to 0.22.0
+- (GH-510) Go Runtime: Bump golang from 1.21.11 to 1.21.12 in /dependabot/docker/go
+
 ## [v0.5.9] - 2024-06-07
 
 ### Changed
@@ -802,7 +817,8 @@ Features of this release:
   - choice of `disabled`, `panic`, `fatal`, `error`, `warn`, `info` (the
     default), `debug` or `trace`.
 
-[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.5.9...HEAD
+[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.5.10...HEAD
+[v0.5.10]: https://github.com/atc0005/check-whois/releases/tag/v0.5.10
 [v0.5.9]: https://github.com/atc0005/check-whois/releases/tag/v0.5.9
 [v0.5.8]: https://github.com/atc0005/check-whois/releases/tag/v0.5.8
 [v0.5.7]: https://github.com/atc0005/check-whois/releases/tag/v0.5.7
