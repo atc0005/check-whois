@@ -26,6 +26,28 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.5.11] - 2024-08-13
+
+### Changed
+
+#### Dependency Updates
+
+- (GH-528) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.21.4 to go-ci-oldstable-build-v0.21.5 in /dependabot/docker/builds
+- (GH-532) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.21.5 to go-ci-oldstable-build-v0.21.6 in /dependabot/docker/builds
+- (GH-534) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.21.6 to go-ci-oldstable-build-v0.21.7 in /dependabot/docker/builds
+- (GH-546) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.21.7 to go-ci-oldstable-build-v0.21.8 in /dependabot/docker/builds
+- (GH-527) Go Dependency: Bump github.com/likexian/whois from 1.15.3 to 1.15.4
+- (GH-526) Go Dependency: Bump github.com/likexian/whois-parser from 1.24.18 to 1.24.19
+- (GH-542) Go Dependency: Bump golang.org/x/net from 0.27.0 to 0.28.0
+- (GH-538) Go Dependency: Bump golang.org/x/sys from 0.22.0 to 0.23.0
+- (GH-547) Go Dependency: Bump golang.org/x/sys from 0.23.0 to 0.24.0
+- (GH-543) Go Dependency: Bump golang.org/x/text from 0.16.0 to 0.17.0
+- (GH-544) Go Runtime: Bump golang from 1.21.12 to 1.21.13 in /dependabot/docker/go
+
+#### Other
+
+- (GH-536) Push `REPO_VERSION` var into containers for builds
+
 ## [v0.5.10] - 2024-07-10
 
 ### Changed
@@ -817,7 +839,8 @@ Features of this release:
   - choice of `disabled`, `panic`, `fatal`, `error`, `warn`, `info` (the
     default), `debug` or `trace`.
 
-[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.5.10...HEAD
+[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.5.11...HEAD
+[v0.5.11]: https://github.com/atc0005/check-whois/releases/tag/v0.5.11
 [v0.5.10]: https://github.com/atc0005/check-whois/releases/tag/v0.5.10
 [v0.5.9]: https://github.com/atc0005/check-whois/releases/tag/v0.5.9
 [v0.5.8]: https://github.com/atc0005/check-whois/releases/tag/v0.5.8
