@@ -26,6 +26,15 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.5.12] - 2024-08-21
+
+### Changed
+
+#### Dependency Updates
+
+- (GH-555) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.21.8 to go-ci-oldstable-build-v0.21.9 in /dependabot/docker/builds
+- (GH-556) Update project to Go 1.22 series
+
 ## [v0.5.11] - 2024-08-13
 
 ### Changed
@@ -839,7 +848,8 @@ Features of this release:
   - choice of `disabled`, `panic`, `fatal`, `error`, `warn`, `info` (the
     default), `debug` or `trace`.
 
-[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.5.11...HEAD
+[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.5.12...HEAD
+[v0.5.12]: https://github.com/atc0005/check-whois/releases/tag/v0.5.12
 [v0.5.11]: https://github.com/atc0005/check-whois/releases/tag/v0.5.11
 [v0.5.10]: https://github.com/atc0005/check-whois/releases/tag/v0.5.10
 [v0.5.9]: https://github.com/atc0005/check-whois/releases/tag/v0.5.9
