@@ -48,14 +48,18 @@ var DefaultClient = NewClient()
 type Client struct {
 	dialer          proxy.Dialer
 	timeout         time.Duration
-	elapsed         time.Duration
 	disableStats    bool
 	disableReferral bool
 }
 
+type hasTimeout struct {
+	Timeout time.Duration
+	proxy.Dialer
+}
+
 // Version returns package version
 func Version() string {
-	return "1.15.4"
+	return "1.15.5"
 }
 
 // Author returns package author
@@ -91,6 +95,9 @@ func (c *Client) SetDialer(dialer proxy.Dialer) *Client {
 
 // SetTimeout set query timeout
 func (c *Client) SetTimeout(timeout time.Duration) *Client {
+	if d, ok := c.dialer.(*hasTimeout); ok {
+		d.Timeout = timeout
+	}
 	c.timeout = timeout
 	return c
 }
@@ -175,7 +182,6 @@ func (c *Client) Whois(domain string, servers ...string) (result string, err err
 
 // rawQuery do raw query to the server
 func (c *Client) rawQuery(domain, server, port string) (string, error) {
-	c.elapsed = 0
 	start := time.Now()
 
 	if server == "whois.arin.net" {
@@ -202,23 +208,21 @@ func (c *Client) rawQuery(domain, server, port string) (string, error) {
 	}
 
 	defer conn.Close()
-	c.elapsed = time.Since(start)
+	elapsed := time.Since(start)
 
-	_ = conn.SetWriteDeadline(time.Now().Add(c.timeout - c.elapsed))
+	_ = conn.SetWriteDeadline(time.Now().Add(c.timeout - elapsed))
 	_, err = conn.Write([]byte(domain + "\r\n"))
 	if err != nil {
 		return "", fmt.Errorf("whois: send to whois server failed: %w", err)
 	}
 
-	c.elapsed = time.Since(start)
+	elapsed = time.Since(start)
 
-	_ = conn.SetReadDeadline(time.Now().Add(c.timeout - c.elapsed))
+	_ = conn.SetReadDeadline(time.Now().Add(c.timeout - elapsed))
 	buffer, err := io.ReadAll(conn)
 	if err != nil {
 		return "", fmt.Errorf("whois: read from whois server failed: %w", err)
 	}
-
-	c.elapsed = time.Since(start)
 
 	return string(buffer), nil
 }
