@@ -23,6 +23,7 @@ import (
 	"fmt"
 	"io"
 	"net"
+	"regexp"
 	"strconv"
 	"strings"
 	"time"
@@ -46,10 +47,11 @@ var DefaultClient = NewClient()
 
 // Client is whois client
 type Client struct {
-	dialer          proxy.Dialer
-	timeout         time.Duration
-	disableStats    bool
-	disableReferral bool
+	dialer               proxy.Dialer
+	timeout              time.Duration
+	disableStats         bool
+	disableReferral      bool
+	disableReferralChain bool
 }
 
 type hasTimeout struct {
@@ -59,7 +61,7 @@ type hasTimeout struct {
 
 // Version returns package version
 func Version() string {
-	return "1.15.5"
+	return "1.15.6"
 }
 
 // Author returns package author
@@ -114,6 +116,12 @@ func (c *Client) SetDisableReferral(disabled bool) *Client {
 	return c
 }
 
+// SetDisableReferralChain controls whether to keep all WHOIS responses in the output
+func (c *Client) SetDisableReferralChain(disabled bool) *Client {
+	c.disableReferralChain = disabled
+	return c
+}
+
 // Whois do the whois query and returns whois information
 func (c *Client) Whois(domain string, servers ...string) (result string, err error) {
 	start := time.Now()
@@ -146,6 +154,11 @@ func (c *Client) Whois(domain string, servers ...string) (result string, err err
 	if len(servers) > 0 && servers[0] != "" {
 		server = strings.ToLower(servers[0])
 		port = defaultWhoisPort
+		reHasNumericPort := regexp.MustCompile(`:(\d+)$`)
+		if matches := reHasNumericPort.FindStringSubmatch(server); matches != nil {
+			server = server[:len(server)-len(matches[0])]
+			port = matches[1]
+		}
 	} else {
 		ext := getExtension(domain)
 		result, err := c.rawQuery(ext, defaultWhoisServer, defaultWhoisPort)
@@ -174,7 +187,11 @@ func (c *Client) Whois(domain string, servers ...string) (result string, err err
 
 	data, err := c.rawQuery(domain, refServer, refPort)
 	if err == nil {
-		result += data
+		if c.disableReferralChain {
+			result = data
+		} else {
+			result += data
+		}
 	}
 
 	return
@@ -213,6 +230,16 @@ func (c *Client) rawQuery(domain, server, port string) (string, error) {
 	_ = conn.SetWriteDeadline(time.Now().Add(c.timeout - elapsed))
 	_, err = conn.Write([]byte(domain + "\r\n"))
 	if err != nil {
+		// Some servers may refuse a request with a reason, immediately closing the connection after sending.
+		// For example, GoDaddy returns "Number of allowed queries exceeded.\r\n", and immediately closes the connection.
+		//
+		// We return both the response _and_ the error, to allow callers to try to parse the response, while
+		// still letting them know an error occurred. In particular, this helps catch rate limit errors.
+		buffer, _ := io.ReadAll(conn)
+		if len(buffer) > 0 {
+			return string(buffer), err
+		}
+
 		return "", fmt.Errorf("whois: send to whois server failed: %w", err)
 	}
 
@@ -221,6 +248,16 @@ func (c *Client) rawQuery(domain, server, port string) (string, error) {
 	_ = conn.SetReadDeadline(time.Now().Add(c.timeout - elapsed))
 	buffer, err := io.ReadAll(conn)
 	if err != nil {
+		if len(buffer) > 0 {
+			// Some servers may refuse a request with a reason, immediately closing the connection after sending.
+			// For example, GoDaddy returns "Number of allowed queries exceeded.\r\n", and immediately closes the connection.
+			//
+			// We return both the response _and_ the error, to allow callers to try to parse the response, while
+			// still letting them know an error occurred (potentially short reads). In particular, this helps
+			// catch rate limit errors.
+			return string(buffer), err
+		}
+
 		return "", fmt.Errorf("whois: read from whois server failed: %w", err)
 	}
 
@@ -243,13 +280,14 @@ func getExtension(domain string) string {
 	return ext
 }
 
-// getServer returns server from whois data
+// getServer returns the first referral server from whois data (if any)
 func getServer(data string) (string, string) {
 	tokens := []string{
 		"Registrar WHOIS Server: ",
 		"whois: ",
 		"ReferralServer: ",
 		"refer: ",
+		"%referral ", // e.g. %referral rwhois://root.rwhois.net:4321/auth-area=.
 	}
 
 	for _, token := range tokens {
@@ -267,6 +305,12 @@ func getServer(data string) (string, string) {
 			if strings.Contains(server, ":") {
 				v := strings.Split(server, ":")
 				server, port = v[0], v[1]
+				// Strip trailing non-numeric characters from port
+				reNumericTrailing := regexp.MustCompile(`^(\d+)\D.*$`)
+				matches := reNumericTrailing.FindStringSubmatch(port)
+				if matches != nil {
+					port = matches[1]
+				}
 			}
 			return server, port
 		}
