@@ -8,7 +8,7 @@
 module github.com/atc0005/check-whois
 
 // Set module version to highest value used by dependencies
-go 1.21
+go 1.23.0
 
 require (
 	github.com/atc0005/go-nagios v0.19.0
