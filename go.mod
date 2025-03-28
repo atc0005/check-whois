@@ -9,6 +9,7 @@ module github.com/atc0005/check-whois
 
 // Set module version to highest value used by dependencies
 go 1.21
+toolchain go1.24.1
 
 require (
 	github.com/atc0005/go-nagios v0.19.0
@@ -22,7 +23,7 @@ require (
 	github.com/likexian/gokit v0.25.15 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
-	golang.org/x/net v0.32.0 // indirect
-	golang.org/x/sys v0.28.0 // indirect
-	golang.org/x/text v0.21.0 // indirect
+	golang.org/x/net v0.38.0 // indirect
+	golang.org/x/sys v0.31.0 // indirect
+	golang.org/x/text v0.23.0 // indirect
 )
