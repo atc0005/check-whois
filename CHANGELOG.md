@@ -26,6 +26,24 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.5.15] - 2025-04-15
+
+### Changed
+
+#### Dependency Updates
+
+- (GH-699) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.21.18 to go-ci-oldstable-build-v0.22.9 in /dependabot/docker/builds
+- (GH-701) Disable Dependabot automatic PR rebasing
+- (GH-667) Go Dependency: Bump github.com/likexian/whois from 1.15.5 to 1.15.6
+- (GH-642) Go Dependency: Bump github.com/mattn/go-colorable from 0.1.13 to 0.1.14
+- (GH-691) Go Dependency: Bump github.com/rs/zerolog from 1.33.0 to 1.34.0
+- (GH-709) Go Dependency: Bump golang.org/x/net from 0.32.0 to 0.39.0
+- (GH-704) Go Dependency: Bump golang.org/x/sys from 0.28.0 to 0.32.0
+- (GH-703) Go Dependency: Bump golang.org/x/text from 0.21.0 to 0.24.0
+- (GH-698) Go Runtime: Bump golang from 1.22.10 to 1.23.8 in /dependabot/docker/go
+- (GH-687) go.mod: update minimum Go version to 1.23.0
+- (GH-670) Update project to Go 1.23 series
+
 ## [v0.5.14] - 2024-12-05
 
 ### Changed
@@ -887,7 +905,8 @@ Features of this release:
   - choice of `disabled`, `panic`, `fatal`, `error`, `warn`, `info` (the
     default), `debug` or `trace`.
 
-[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.5.14...HEAD
+[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.5.15...HEAD
+[v0.5.15]: https://github.com/atc0005/check-whois/releases/tag/v0.5.15
 [v0.5.14]: https://github.com/atc0005/check-whois/releases/tag/v0.5.14
 [v0.5.13]: https://github.com/atc0005/check-whois/releases/tag/v0.5.13
 [v0.5.12]: https://github.com/atc0005/check-whois/releases/tag/v0.5.12
