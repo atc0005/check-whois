@@ -26,6 +26,19 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.5.16] - 2025-05-16
+
+### Changed
+
+#### Dependency Updates
+
+- (GH-723) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.22.9 to go-ci-oldstable-build-v0.22.10 in /dependabot/docker/builds
+- (GH-713) Go Dependency: Bump github.com/atc0005/go-nagios from 0.19.0 to 0.20.0
+- (GH-716) Go Dependency: Bump golang.org/x/net from 0.39.0 to 0.40.0
+- (GH-717) Go Dependency: Bump golang.org/x/sys from 0.32.0 to 0.33.0
+- (GH-715) Go Dependency: Bump golang.org/x/text from 0.24.0 to 0.25.0
+- (GH-721) Go Runtime: Bump golang from 1.23.8 to 1.23.9 in /dependabot/docker/go
+
 ## [v0.5.15] - 2025-04-15
 
 ### Changed
@@ -905,7 +918,8 @@ Features of this release:
   - choice of `disabled`, `panic`, `fatal`, `error`, `warn`, `info` (the
     default), `debug` or `trace`.
 
-[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.5.15...HEAD
+[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.5.16...HEAD
+[v0.5.16]: https://github.com/atc0005/check-whois/releases/tag/v0.5.16
 [v0.5.15]: https://github.com/atc0005/check-whois/releases/tag/v0.5.15
 [v0.5.14]: https://github.com/atc0005/check-whois/releases/tag/v0.5.14
 [v0.5.13]: https://github.com/atc0005/check-whois/releases/tag/v0.5.13
