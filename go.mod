@@ -8,14 +8,13 @@
 module github.com/atc0005/check-whois
 
 // Set module version to highest value used by dependencies
-go 1.23.0
+go 1.25.0
 
 require (
 	github.com/atc0005/go-nagios v0.20.0
 	github.com/likexian/whois v1.15.6
 	github.com/likexian/whois-parser v1.24.20
 	github.com/rs/zerolog v1.34.0
-
 )
 
 require (
