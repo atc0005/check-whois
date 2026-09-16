@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2024 Li Kexian
+ * Copyright 2014-2026 Li Kexian
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -73,6 +73,7 @@ var (
 		"domain registered":                      "created_date",
 		"modified":                               "updated_date",
 		"changed":                                "updated_date",
+		"updated":                                "updated_date",
 		"update date":                            "updated_date",
 		"updated date":                           "updated_date",
 		"updated on":                             "updated_date",
@@ -89,6 +90,7 @@ var (
 		"expires":                                "expired_date",
 		"expires on":                             "expired_date",
 		"paid till":                              "expired_date",
+		"valid until":                            "expired_date",
 		"expire date":                            "expired_date",
 		"expired date":                           "expired_date",
 		"expiration date":                        "expired_date",
@@ -113,6 +115,8 @@ var (
 		"registrant iana id":                     "registrant_id",
 		"registrant contact id":                  "registrant_id",
 		"registrant register number":             "registrant_id",
+		"registrant domain registrant":           "registrant_id",
+		"registrar authorised registrar":         "registrant_id",
 		"registrant id number":                   "registrant_id",
 		"registrant nic hdl":                     "registrant_id",
 		"registrant nic handle":                  "registrant_id",
@@ -158,6 +162,7 @@ var (
 		"registrant contact postal code":         "registrant_postal_code",
 		"registrant country":                     "registrant_country",
 		"registrant country economy":             "registrant_country",
+		"registrant country code":                "registrant_country",
 		"registrant contact country":             "registrant_country",
 		"registrant phone":                       "registrant_phone",
 		"registrant phone number":                "registrant_phone",
