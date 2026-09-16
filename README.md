@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD028 -->
+
 <!-- omit in toc -->
 # check-whois
 
@@ -15,6 +17,7 @@ Go-based tooling to monitor WHOIS records.
 - [Project home](#project-home)
 - [Overview](#overview)
   - [`check_whois`](#check_whois)
+    - [WHOIS vs RDAP: Querying domain metadata](#whois-vs-rdap-querying-domain-metadata)
     - [Performance Data](#performance-data)
 - [Features](#features)
 - [Changelog](#changelog)
@@ -44,20 +47,55 @@ submit improvements for review and potential inclusion into the project.
 
 ## Overview
 
-This repo is intended to provide various tools used to monitor WHOIS.
+This repo is intended to provide various tools used to monitor RDAP and WHOIS records.
 
-| Tool Name     | Overall Status | Description                                               |
-| ------------- | -------------- | --------------------------------------------------------- |
-| `check_whois` | Alpha          | Nagios plugin used to monitor expiration of WHOIS records |
+| Tool Name     | Description                                                                 |
+| ------------- | --------------------------------------------------------------------------- |
+| `check_whois` | Nagios plugin used to monitor domain expirations via RDAP and WHOIS records |
 
 ### `check_whois`
 
-Nagios plugin used to monitor expiration of WHOIS records.
+Nagios plugin used to monitor domain expirations using RDAP (default) and WHOIS (fallback) records.
 
 The output for this application is designed to provide the one-line summary
 needed by Nagios for quick identification of a problem while providing longer,
 more detailed information for use in email and Teams notifications
 ([atc0005/send2teams](https://github.com/atc0005/send2teams)).
+
+#### WHOIS vs RDAP: Querying domain metadata
+
+Per [icann.org](https://www.icann.org/en/announcements/details/icann-update-launching-rdap-sunsetting-whois-27-01-2025-en):
+
+> As of 28 January 2025, the Registration Data Access Protocol (RDAP) will be
+> the definitive source for delivering generic top-level domain name (gTLD)
+> registration information in place of sunsetted WHOIS services.
+
+As a result, registries and registrars will no longer be required to support
+WHOIS from 2025 (WHOIS Sunset Date). The result is that WHOIS queries began
+failing for many TLDs starting from 2025-08-06. In short, RDAP is required for
+some TLDs with WHOIS only supported for others.
+
+As of the `v0.6.0` release of the plugin, RDAP queries will be used by default
+where possible. If the top-level domain (TLD) for a specified domain (e.g.,
+`.com`, `.org`, ...) has a RDAP Base URL in the [Bootstrap Service
+Registry][rdap-bootstrap-service-registry] then a RDAP query will be
+performed, otherwise a WHOIS query will be attempted as a fallback.
+
+> [!TIP]
+>
+> Consult the [RDAP Deployment Dashboard][rdap-deployment-dashboard] to
+confirm whether a RDAP server is provided for your specified domain's TLD. For
+example, as of September 2026 the `mit.edu` domain metadata is not available
+via RDAP as the `.edu` TLD does not have a RDAP server recorded in the
+[Bootstrap Service Registry][rdap-bootstrap-service-registry].
+
+> [!NOTE]
+>
+> This plugin bundles a copy of the `dns.json` [RDAP Bootstrap DNS Service
+> Registry][rdap-bootstrap-dns-service-registry-json] file to determine RDAP
+> query compatibility for specified domain TLDs. This bundled file will be
+> periodically updated and a new release of this plugin released to reflect
+> the change.
 
 #### Performance Data
 
@@ -81,9 +119,11 @@ feedback that you may have. Thanks in advance!
 
 ## Features
 
-- Nagios plugin for monitoring expiration of WHOIS records
+- Nagios plugin for monitoring domain expiration via RDAP (default) and WHOIS (fallback) records
 
 - Optional use of custom WHOIS server
+
+- Optional use of custom RDAP server URL
 
 - Optional disabling of referral lookups
 
@@ -200,17 +240,26 @@ binaries.
 
 #### `check_whois`
 
-| Flag                  | Required | Default | Repeat | Possible                                                                | Description                                                                                          |
-| --------------------- | -------- | ------- | ------ | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `branding`            | No       | `false` | No     | `branding`                                                              | Toggles emission of branding details with plugin status details. This output is disabled by default. |
-| `h`, `help`           | No       | `false` | No     | `h`, `help`                                                             | Show Help text along with the list of supported flags.                                               |
-| `v`, `version`        | No       | `false` | No     | `v`, `version`                                                          | Whether to display application version and then immediately exit application.                        |
-| `c`, `age-critical`   | No       | 15      | No     | *positive whole number of days*                                         | The number of days remaining before domain expiration when a `CRITICAL` state is triggered.          |
-| `w`, `age-warning`    | No       | 30      | No     | *positive whole number of days*                                         | The number of days remaining before domain expiration when a `WARNING` state is triggered.           |
-| `ll`, `log-level`     | No       | `info`  | No     | `disabled`, `panic`, `fatal`, `error`, `warn`, `info`, `debug`, `trace` | Log message priority filter. Log messages with a lower level are ignored.                            |
-| `d`, `domain`         | **Yes**  |         | No     | *domain name*                                                           | The name of the domain whose WHOIS records will be evaluated.                                        |
-| `s`, `server`         | No       |         | No     | *valid WHOIS server fqdn*                                               | The name of the optional domain registrar WHOIS server to use for queries.                           |
-| `disable-ref-lookups` | No       | `false` | No     | `true`, `false`                                                         | Disables WHOIS server referral lookups. Lookups are enabled by default.                              |
+| Flag                          | Required | Default | Repeat | Possible                                                                | Description                                                                                                         |
+| ----------------------------- | -------- | ------- | ------ | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `branding`                    | No       | `false` | No     | `branding`                                                              | Toggles emission of branding details with plugin status details. This output is disabled by default.                |
+| `h`, `help`                   | No       | `false` | No     | `h`, `help`                                                             | Show Help text along with the list of supported flags.                                                              |
+| `v`, `version`                | No       | `false` | No     | `v`, `version`                                                          | Whether to display application version and then immediately exit application.                                       |
+| `c`, `age-critical`           | No       | 15      | No     | *positive whole number of days*                                         | The number of days remaining before domain expiration when a `CRITICAL` state is triggered.                         |
+| `w`, `age-warning`            | No       | 30      | No     | *positive whole number of days*                                         | The number of days remaining before domain expiration when a `WARNING` state is triggered.                          |
+| `ll`, `log-level`             | No       | `info`  | No     | `disabled`, `panic`, `fatal`, `error`, `warn`, `info`, `debug`, `trace` | Log message priority filter. Log messages with a lower level are ignored.                                           |
+| `d`, `domain`                 | **Yes**  |         | No     | *domain name*                                                           | The name of the domain whose WHOIS records will be evaluated.                                                       |
+| `s`, `server`, `whois-server` | No       |         | No     | *valid WHOIS server fqdn*                                               | The name of the optional domain registrar WHOIS server to use for queries. Only used if a WHOIS query is performed. |
+| `rdap-url`                    | No       |         | No     | *valid RDAP server URL*                                                 | The optional RDAP server URL to use for RDAP queries. Only used if a RDAP query is performed.                       |
+| `disable-ref-lookups`         | No       | `false` | No     | `true`, `false`                                                         | Disables WHOIS server referral lookups. Lookups are enabled by default.                                             |
+
+> [!IMPORTANT]
+>
+> Specifying both a custom WHOIS server and a custom RDAPserver URL is
+> permitted, however, if you specify a custom WHOIS server it will only be
+> used if a WHOIS query is performed. Likewise, a custom RDAP server URL will
+> only be used if a RDAP query is performed. Specifying one or the other does
+> not force that specific query type to be used.
 
 ## Examples
 
@@ -361,6 +410,7 @@ SOFTWARE.
 
 - <https://github.com/likexian/whois>
 - <https://github.com/likexian/whois-parser>
+- <https://github.com/openrdap/rdap>
 - <https://github.com/rs/zerolog>
 - <https://github.com/atc0005/go-nagios>
 
@@ -379,5 +429,11 @@ SOFTWARE.
 [go-supported-releases]: <https://go.dev/doc/devel/release#policy> "Go Release Policy"
 
 [logfmt]: <https://brandur.org/logfmt>
+
+[rdap-bootstrap-service-registry]: <https://www.iana.org/assignments/rdap-dns>  "RDAP Bootstrap Service Registry"
+
+[rdap-deployment-dashboard]: <https://deployment.rdap.org/>  "RDAP Deployment Dashboard"
+
+[rdap-bootstrap-dns-service-registry-json]: <https://data.iana.org/rdap/dns.json>  "RDAP Bootstrap DNS Service Registry JSON file"
 
 <!-- []: PLACEHOLDER "DESCRIPTION_HERE" -->

@@ -10,27 +10,27 @@ package main
 import (
 	"fmt"
 
-	"github.com/atc0005/check-whois/internal/domain"
+	"github.com/atc0005/check-whois/internal/domain/metadata"
 	"github.com/atc0005/go-nagios"
 )
 
 // getPerfData generates performance data metrics from the given domain
 // metadata age thresholds. An error is returned if any are encountered while
 // gathering metrics or if invalid domain metadata is provided.
-func getPerfData(d *domain.Metadata, ageCritical int, ageWarning int) ([]nagios.PerformanceData, error) {
+func getPerfData(d *metadata.Domain, ageCritical int, ageWarning int) ([]nagios.PerformanceData, error) {
 
 	var expires int
-	if daysToExpiration, err := domain.UntilExpiration(d); err == nil {
+	if daysToExpiration, err := metadata.UntilExpiration(d); err == nil {
 		expires = daysToExpiration
 	}
 
 	var updated int
-	if daysSinceUpdate, err := domain.SinceUpdate(d); err == nil {
+	if daysSinceUpdate, err := metadata.SinceUpdate(d); err == nil {
 		updated = daysSinceUpdate
 	}
 
 	var created int
-	if daysSinceCreation, err := domain.SinceCreation(d); err == nil {
+	if daysSinceCreation, err := metadata.SinceCreation(d); err == nil {
 		created = daysSinceCreation
 	}
 

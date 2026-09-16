@@ -1,3 +1,9 @@
+# github.com/alecthomas/kingpin/v2 v2.4.0
+## explicit; go 1.17
+github.com/alecthomas/kingpin/v2
+# github.com/alecthomas/units v0.0.0-20240927000941-0f3dac36c52b
+## explicit; go 1.15
+github.com/alecthomas/units
 # github.com/atc0005/go-nagios v0.20.0
 ## explicit; go 1.21
 github.com/atc0005/go-nagios
@@ -18,12 +24,28 @@ github.com/mattn/go-colorable
 # github.com/mattn/go-isatty v0.0.24
 ## explicit; go 1.20
 github.com/mattn/go-isatty
+# github.com/mitchellh/go-homedir v1.1.0
+## explicit
+github.com/mitchellh/go-homedir
+# github.com/openrdap/rdap v0.10.2
+## explicit; go 1.26.0
+github.com/openrdap/rdap
+github.com/openrdap/rdap/bootstrap
+github.com/openrdap/rdap/bootstrap/cache
+github.com/openrdap/rdap/sandbox
 # github.com/rs/zerolog v1.35.1
 ## explicit; go 1.23
 github.com/rs/zerolog
 github.com/rs/zerolog/internal/cbor
 github.com/rs/zerolog/internal/json
 github.com/rs/zerolog/log
+# github.com/xhit/go-str2duration/v2 v2.2.0
+## explicit; go 1.13
+github.com/xhit/go-str2duration/v2
+# golang.org/x/crypto v0.57.0
+## explicit; go 1.26.0
+golang.org/x/crypto/pkcs12
+golang.org/x/crypto/pkcs12/internal/rc2
 # golang.org/x/net v0.59.0
 ## explicit; go 1.26.0
 golang.org/x/net/idna

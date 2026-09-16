@@ -5,6 +5,6 @@
 // Licensed under the MIT License. See LICENSE file in the project root for
 // full license information.
 
-// Package domain provides common/shared utility code to support applications
-// in this module which process domain metdata.
-package domain
+// Package whois provides common/shared utility code to support applications
+// in this module which process WHOIS domain metdata.
+package whois

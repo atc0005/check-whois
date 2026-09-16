@@ -9,6 +9,7 @@ package config
 
 import (
 	"fmt"
+	"net/url"
 	"strings"
 )
 
@@ -54,6 +55,18 @@ func (c Config) validate() error {
 	requestedLoggingLevel := strings.ToLower(c.LoggingLevel)
 	if _, ok := loggingLevels[requestedLoggingLevel]; !ok {
 		return fmt.Errorf("invalid logging level %q", c.LoggingLevel)
+	}
+
+	// While we could enforce HTTPS it's possible that someone would wish to
+	// use a local RDAP server (without TLS) for testing purposes, so we don't
+	// enforce that requirement.
+	if c.RDAPServerURL != "" {
+		_, err := url.Parse(c.RDAPServerURL)
+		if err != nil {
+			return fmt.Errorf(
+				"custom RDAP RDAP Server URL invalid: %w", err,
+			)
+		}
 	}
 
 	// Optimist

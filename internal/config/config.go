@@ -69,6 +69,10 @@ type Config struct {
 	// lookups.
 	RegistrarServer string
 
+	// RDAPServer is the optional user-specified server URL to use for RDAP
+	// lookups.
+	RDAPServerURL string
+
 	// LoggingLevel is the supported logging level for this application.
 	LoggingLevel string
 
