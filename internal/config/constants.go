@@ -11,8 +11,9 @@ const myAppName string = "check-whois"
 const myAppURL string = "https://github.com/atc0005/" + myAppName
 
 const (
-	domainFlagHelp                  string = "The name of the domain whose WHOIS records will be evaluated."
-	registrarServerFlagHelp         string = "The name of the optional domain registrar WHOIS server to use for queries."
+	domainFlagHelp                  string = "The name of the domain whose WHOIS or RDAP records will be evaluated."
+	registrarServerFlagHelp         string = "The name of the optional domain registrar server to use for WHOIS queries."
+	rdapServerURLFlagHelp           string = "The optional RDAP server URL to use for RDAP queries."
 	versionFlagHelp                 string = "Whether to display application version and then immediately exit application."
 	logLevelFlagHelp                string = "Sets log level to one of disabled, panic, fatal, error, warn, info, debug or trace."
 	brandingFlagHelp                string = "Toggles emission of branding details with plugin status details. This output is disabled by default."
@@ -25,6 +26,7 @@ const (
 const (
 	defaultDomain                 string = ""
 	defaultRegistrarServer        string = ""
+	defaultRDAPServerURL          string = ""
 	defaultLogLevel               string = "info"
 	defaultDisableReferralLookups bool   = false
 	defaultBranding               bool   = false
