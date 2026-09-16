@@ -26,6 +26,26 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.5.17] - 2026-09-16
+
+### Changed
+
+- (GH-850) Build Image: Bump atc0005/go-ci from go-ci-oldstable-build-v0.22.10 to go-ci-oldstable-build-v0.23.25 in /dependabot/docker/builds
+- (GH-841) CI Dependency: Bump actions/checkout from 4 to 7
+- (GH-774) CI Dependency: Bump github/codeql-action from 3 to 4
+- (GH-813) Go Dependency: Bump github.com/likexian/gokit from 0.25.15 to 0.25.16
+- (GH-811) Go Dependency: Bump github.com/likexian/whois from 1.15.6 to 1.15.7
+- (GH-812) Go Dependency: Bump github.com/likexian/whois-parser from 1.24.20 to 1.24.21
+- (GH-843) Go Dependency: Bump github.com/mattn/go-colorable from 0.1.14 to 0.1.15
+- (GH-828) Go Dependency: Bump github.com/mattn/go-isatty from 0.0.20 to 0.0.24
+- (GH-830) Go Dependency: Bump github.com/rs/zerolog from 1.34.0 to 1.35.1
+- (GH-832) Go Dependency: Bump golang.org/x/net from 0.40.0 to 0.59.0
+- (GH-837) Go Dependency: Bump golang.org/x/sys from 0.33.0 to 0.48.0
+- (GH-835) Go Dependency: Bump golang.org/x/text from 0.25.0 to 0.42.0
+- (GH-845) go.mod: update minimum Go version to 1.25.0
+- (GH-848) go.mod: update minimum Go version to 1.26.0
+- (GH-827) Remove "canary" Go version tracking
+
 ## [v0.5.16] - 2025-05-16
 
 ### Changed
@@ -918,7 +938,8 @@ Features of this release:
   - choice of `disabled`, `panic`, `fatal`, `error`, `warn`, `info` (the
     default), `debug` or `trace`.
 
-[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.5.16...HEAD
+[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.5.17...HEAD
+[v0.5.17]: https://github.com/atc0005/check-whois/releases/tag/v0.5.17
 [v0.5.16]: https://github.com/atc0005/check-whois/releases/tag/v0.5.16
 [v0.5.15]: https://github.com/atc0005/check-whois/releases/tag/v0.5.15
 [v0.5.14]: https://github.com/atc0005/check-whois/releases/tag/v0.5.14
