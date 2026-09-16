@@ -14,14 +14,15 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/openrdap/rdap"
+	"github.com/openrdap/rdap/bootstrap"
+	"github.com/openrdap/rdap/bootstrap/cache"
 	zlog "github.com/rs/zerolog/log"
 
 	"github.com/atc0005/check-whois/internal/config"
-	"github.com/atc0005/check-whois/internal/domain"
+	"github.com/atc0005/check-whois/internal/domain/metadata"
 
 	"github.com/atc0005/go-nagios"
-	"github.com/likexian/whois"
-	whoisparser "github.com/likexian/whois-parser"
 )
 
 func main() {
@@ -61,12 +62,12 @@ func main() {
 
 	plugin.WarningThreshold = fmt.Sprintf(
 		"Expires before %v (%d days)",
-		domainExpireAgeWarning.Format(domain.DomainDateLayout),
+		domainExpireAgeWarning.Format(metadata.DomainDateLayout),
 		cfg.AgeWarning,
 	)
 	plugin.CriticalThreshold = fmt.Sprintf(
 		"Expires before %v (%d days)",
-		domainExpireAgeCritical.Format(domain.DomainDateLayout),
+		domainExpireAgeCritical.Format(metadata.DomainDateLayout),
 		cfg.AgeCritical,
 	)
 
@@ -79,66 +80,74 @@ func main() {
 		Str("domain", cfg.Domain).
 		Logger()
 
-	var whoisRaw string
 	var err error
 
-	client := whois.NewClient()
+	var d *metadata.Domain
 
-	// Explicitly set referral lookup behavior. Referral lookups are performed
-	// unless requested otherwise by the sysadmin.
-	client.SetDisableReferral(cfg.DisableReferralLookups)
+	// We track the datasource locally for scenarios where we fail to resolve
+	// metadata for a given domain.
+	var dataSource string
+
+	// Create new cache using embedded local file.
+	bootstrapCache := cache.NewMemoryCache()
+	if err := bootstrapCache.Save(bootstrap.DNS.Filename(), bootstrapRegistryFile); err != nil {
+		// We should not be encountering an error at this point unless the
+		// embedded JSON file is malformed. If that's the case, we need to
+		// immediately abort.
+		log.Error().Err(err).Msgf("Error initializing application")
+		plugin.ServiceOutput = fmt.Sprintf(
+			"%s: Error initializing application: %s",
+			nagios.StateUNKNOWNLabel,
+			err,
+		)
+		plugin.AddError(err)
+		plugin.ExitStatusCode = nagios.StateUNKNOWNExitCode
+
+		return
+	}
+
+	// The RDAP client is used for determining whether RDAP query support is
+	// available for a given domain as well as making the actual query if it
+	// is.
+	rdapClient := &rdap.Client{
+		Bootstrap: &bootstrap.Client{
+			Cache: bootstrapCache,
+		},
+
+		Verbose: RDAPDebugLogger(&log),
+	}
 
 	switch {
-	case cfg.RegistrarServer != "":
-		whoisRaw, err = client.Whois(cfg.Domain, cfg.RegistrarServer)
+	case mustUseWHOIS(cfg.Domain, rdapClient):
+		log.Debug().Msg("RDAP query support for domain unavailable, performing WHOIS query instead.")
+
+		d, err = whoisQuery(cfg, domainExpireAgeWarning, domainExpireAgeCritical)
+		dataSource = metadata.DataSourceWHOIS
+
 	default:
-		whoisRaw, err = client.Whois(cfg.Domain)
+		log.Debug().Msg("RDAP query support for domain available, performing RDAP query.")
+
+		d, err = rdapQuery(cfg, rdapClient, domainExpireAgeWarning, domainExpireAgeCritical)
+		dataSource = metadata.DataSourceRDAP
 	}
+
+	log = log.With().
+		Str("query_type", dataSource).
+		Logger()
+
 	if err != nil {
-		log.Error().Err(err).Msg("failed to query WHOIS data")
+		log.Error().Err(err).Msgf("failed to query %s data", dataSource)
 
 		plugin.AddError(err)
 		plugin.ServiceOutput = fmt.Sprintf(
-			"%s: Error fetching WHOIS data for %s domain",
+			"%s: Error retrieving %s data for %s domain",
 			nagios.StateUNKNOWNLabel,
+			dataSource,
 			cfg.Domain,
 		)
 		plugin.ExitStatusCode = nagios.StateUNKNOWNExitCode
 
 		return
-
-	}
-
-	parsedWhois, err := whoisparser.Parse(whoisRaw)
-	if err != nil {
-		log.Error().Err(err).Msg("failed to parse WHOIS data")
-
-		plugin.AddError(err)
-		plugin.ServiceOutput = fmt.Sprintf(
-			"%s: Error parsing WHOIS data for %s domain",
-			nagios.StateUNKNOWNLabel,
-			cfg.Domain,
-		)
-		plugin.ExitStatusCode = nagios.StateUNKNOWNExitCode
-
-		return
-
-	}
-
-	d, err := domain.NewDomain(parsedWhois, domainExpireAgeWarning, domainExpireAgeCritical)
-	if err != nil {
-		log.Error().Err(err).Msg("failed to parse WhoisInfo data")
-
-		plugin.AddError(err)
-		plugin.ServiceOutput = fmt.Sprintf(
-			"%s: Error parsing WhoisInfo data for %s domain",
-			nagios.StateUNKNOWNLabel,
-			cfg.Domain,
-		)
-		plugin.ExitStatusCode = nagios.StateUNKNOWNExitCode
-
-		return
-
 	}
 
 	pd, perfDataErr := getPerfData(d, cfg.AgeCritical, cfg.AgeWarning)
@@ -182,7 +191,7 @@ func main() {
 
 		log.Error().Msg("Domain has expired")
 
-		plugin.AddError(domain.ErrDomainExpired)
+		plugin.AddError(metadata.ErrDomainExpired)
 		plugin.ServiceOutput = d.OneLineCheckSummary()
 		plugin.LongServiceOutput = d.Report()
 		plugin.ExitStatusCode = d.ServiceState().ExitCode
@@ -193,7 +202,7 @@ func main() {
 
 		log.Warn().Msg("Domain is expiring")
 
-		plugin.AddError(domain.ErrDomainExpiring)
+		plugin.AddError(metadata.ErrDomainExpiring)
 		plugin.ServiceOutput = d.OneLineCheckSummary()
 		plugin.LongServiceOutput = d.Report()
 		plugin.ExitStatusCode = d.ServiceState().ExitCode

@@ -29,8 +29,14 @@ func (c *Config) handleFlagsConfig() {
 	flag.StringVar(&c.Domain, "d", defaultDomain, domainFlagHelp)
 	flag.StringVar(&c.Domain, "domain", defaultDomain, domainFlagHelp)
 
+	// The 's' and 'server' flags are kept for backwards compatibility with
+	// the more explicit flag added for potential clarity in monitoring
+	// service check configurations.
 	flag.StringVar(&c.RegistrarServer, "s", defaultRegistrarServer, registrarServerFlagHelp)
 	flag.StringVar(&c.RegistrarServer, "server", defaultRegistrarServer, registrarServerFlagHelp)
+	flag.StringVar(&c.RegistrarServer, "whois-server", defaultRegistrarServer, registrarServerFlagHelp)
+
+	flag.StringVar(&c.RDAPServerURL, "rdap-url", defaultRDAPServerURL, rdapServerURLFlagHelp)
 
 	flag.BoolVar(&c.ShowVersion, "v", defaultDisplayVersionAndExit, versionFlagHelp)
 	flag.BoolVar(&c.ShowVersion, "version", defaultDisplayVersionAndExit, versionFlagHelp)
