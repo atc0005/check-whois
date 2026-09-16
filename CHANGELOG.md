@@ -26,6 +26,12 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.6.0] - 2026-09-16
+
+### Added
+
+- (GH-856) Add RDAP query support with WHOIS fallback
+
 ## [v0.5.17] - 2026-09-16
 
 ### Changed
@@ -938,7 +944,8 @@ Features of this release:
   - choice of `disabled`, `panic`, `fatal`, `error`, `warn`, `info` (the
     default), `debug` or `trace`.
 
-[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.5.17...HEAD
+[Unreleased]: https://github.com/atc0005/check-whois/compare/v0.6.0...HEAD
+[v0.6.0]: https://github.com/atc0005/check-whois/releases/tag/v0.6.0
 [v0.5.17]: https://github.com/atc0005/check-whois/releases/tag/v0.5.17
 [v0.5.16]: https://github.com/atc0005/check-whois/releases/tag/v0.5.16
 [v0.5.15]: https://github.com/atc0005/check-whois/releases/tag/v0.5.15
